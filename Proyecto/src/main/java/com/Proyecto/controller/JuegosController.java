@@ -14,7 +14,7 @@ public class JuegosController {
     
     @GetMapping("/juegos")
     public String mostrarPaginaJuegos() {
-        return "juegos/juegos"; // Devuelve la ruta correcta de la vista (templates/juegos/juegos.html)
+        return "juego/juegos"; // Devuelve la ruta correcta de la vista (templates/juegos/juegos.html)
     }
 }
 
