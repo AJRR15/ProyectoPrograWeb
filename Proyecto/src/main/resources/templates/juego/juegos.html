@@ -1,56 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catálogo de Juegos</title>
-    <!-- Agrega enlaces a tus estilos CSS si los tienes -->
-    <link rel="stylesheet" href="styles.css">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout/plantilla :: head}">
+    <title>TuJuego.Com</title>
 </head>
 <body>
+    
     <!-- Encabezado -->
-    <header>
-        <h1>Catálogo de Juegos</h1>
-    </header>
+    <header th:replace="~{layout/plantilla :: header}"/>
+    
+    <!-- Título del catálogo -->
+    <h1 class="text-center mt-5">Catálogo de Juegos</h1>
 
     <!-- Contenido principal -->
-    <div class="container">
+    <div class="container mt-4">
         <!-- Juego 1: Spiderman 2 -->
-        <div class="juego1">
-            <img src="https://image.api.playstation.com/vulcan/ap/rnd/202306/1219/1c7b75d8ed9271516546560d219ad0b22ee0a263b4537bd8.png" alt="Spiderman 2">
+        <div class="juego1 mb-5">
+            <img src="https://image.api.playstation.com/vulcan/ap/rnd/202306/1219/1c7b75d8ed9271516546560d219ad0b22ee0a263b4537bd8.png" alt="Spiderman 2" class="img-fluid">
             <h2>Spiderman 2</h2>
             <p>Spiderman 2 es un emocionante juego de acción en mundo abierto donde podrás balancearte por la ciudad de Nueva York y enfrentarte a villanos.</p>
             <p>Precio: $59.99</p>
         </div>
 
         <!-- Juego 2: FC 24 -->
-        <div class="juego2">
-            <img src="https://dcdn.mitiendanube.com/stores/002/602/523/products/whatsapp-image-2023-07-14-at-15-17-561-7daf369eb3db72a48016893645165538-1024-1024.jpeg" alt="FC 24">
+        <div class="juego2 mb-5">
+            <img src="https://dcdn.mitiendanube.com/stores/002/602/523/products/whatsapp-image-2023-07-14-at-15-17-561-7daf369eb3db72a48016893645165538-1024-1024.jpeg" alt="FC 24" class="img-fluid">
             <h2>FC 24</h2>
             <p>FC 24 es un juego de fútbol que ofrece una experiencia de juego realista con gráficos impresionantes y una jugabilidad emocionante.</p>
             <p>Precio: $49.99</p>
         </div>
 
         <!-- Juego 3: God of War -->
-        <div class="juego3">
-            <img src="https://i.blogs.es/4bca6c/god-of-war-hub-thumbnail-2018-en-29jul21/1366_2000.jpeg" alt="God of War">
+        <div class="juego3 mb-5">
+            <img src="https://i.blogs.es/4bca6c/god-of-war-hub-thumbnail-2018-en-29jul21/1366_2000.jpeg" alt="God of War" class="img-fluid">
             <h2>God of War</h2>
             <p>God of War es una épica aventura de acción que te lleva a explorar la mitología nórdica mientras te enfrentas a poderosos enemigos y resuelves intrigantes puzzles.</p>
             <p>Precio: $69.99</p>
         </div>
 
         <!-- Juego 4: Mortal Kombat 11 -->
-        <div class="juego4">
-            <img src="https://image.api.playstation.com/vulcan/ap/rnd/202009/0123/bF1qmEL5RM6aMfL0oLcxRe8B.png" alt="Mortal Kombat 11">
+        <div class="juego4 mb-5">
+            <img src="https://image.api.playstation.com/vulcan/ap/rnd/202009/0123/bF1qmEL5RM6aMfL0oLcxRe8B.png" alt="Mortal Kombat 11" class="img-fluid">
             <h2>Mortal Kombat 11</h2>
             <p>Mortal Kombat 11 es la última entrega de la legendaria serie de lucha, con gráficos impresionantes, movimientos brutales y una amplia variedad de personajes.</p>
             <p>Precio: $54.99</p>
         </div>
     </div>
 
-    <!-- Pie de página -->
-    <footer>
-        <p>&copy; 2024 Catálogo de Juegos. Todos los derechos reservados.</p>
-    </footer>
+    <footer th:replace="~{layout/plantilla :: footer}"/>  
 </body>
 </html>
