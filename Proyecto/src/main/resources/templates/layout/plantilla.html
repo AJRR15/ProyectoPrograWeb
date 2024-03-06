@@ -11,41 +11,37 @@
 </head>
 <body>
 
-
-
     <header th:fragment="header" class="header">
-    <section id="main-header" class="py-2 bg-danger text-white">
-        <div class="container d-flex justify-content-between align-items-center">
-            <div class="col-md-6 d-flex align-items-center">
-                <h1 class="me-3">TuJuego.Com</h1>
-                <a class="nav-link active fs-5 me-2" aria-current="page" href="#">Home</a>
-                <a class="nav-link fs-5 me-2" href="#">Link</a>
-                <a class="nav-link fs-5 dropdown-toggle me-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Catalogo
-                </a>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" th:href="@{/juegos}">Juegos</a></li>
-                    <li><a class="dropdown-item" href="@{/accesorios/accesorios}">Accesorios</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="@{/consolas/consolas}">Consolas</a></li>
-                </ul>   
+        <section id="main-header" class="py-2 bg-danger text-white">
+            <div class="container d-flex justify-content-between align-items-center">
+                <div class="col-md-6 d-flex align-items-center">
+                    <h1 class="me-3">TuJuego.Com</h1>
+                    <a class="nav-link active fs-5 me-2" aria-current="page" th:href="@{/}">Home</a>
+                    <a class="nav-link fs-5 me-2" href="#">Link</a>
+                    <a class="nav-link fs-5 dropdown-toggle me-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Catalogo
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" th:href="@{/juegos}">Juegos</a></li>
+                        <li><a class="dropdown-item" href="@{/accesorios/accesorios}">Accesorios</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="@{/consolas/consolas}">Consolas</a></li>
+                    </ul>   
+                </div>
+                <div class="d-flex align-items-center">
+                    <a class="nav-link fs-5 me-2" th:href="@{/iniciarsesion}">Iniciar Sesión</a>
+                    <a class="nav-link fs-5 me-2" th:href="@{/registrarse}">Registrarse</a>
+                    <a class="nav-link fs-5 me-2" th:href="@{/juegos}">Mi Carrito</a>
+                </div>
+                <div class="search-container d-flex align-items-center">
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+                </div>
             </div>
-           <div class="d-flex align-items-center">
-    <a href="#"><i class="bi bi-person-fill"></i></a>
-    <a href="#"><i class="bi bi-cart"></i></a>
-    <a href="#"><i class="bi bi-gear"></i></a>
-</div>
-            <div class="search-container d-flex align-items-center">
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
-            </div>
-        </div>
-    </section>
-</header>
-
-
+        </section>
+    </header>
 
     <!-- End Header -->
 
