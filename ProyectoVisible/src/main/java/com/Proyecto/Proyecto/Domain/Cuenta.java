@@ -4,33 +4,34 @@
  */
 package com.Proyecto.Proyecto.Domain;
 import jakarta.persistence.*;
-import java.io.Serializable;
 import lombok.Data;
-
+import java.io.Serializable;
+/**
+ *
+ * @author alejh
+ */
 @Data
 @Entity
-@Table(name = "juego")
-public class Juegos implements Serializable {
-    
+@Table(name = "cuenta")
+public class Cuenta {
     private static final long serialVersionUID = 1L;
-    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_juego")
-    private Long idJuego;
-    private String imagen;
+    @Column(name = "id")
+    private Long id;
+
+    private String correo;
     private String nombre;
-    private String empresa;
-    private double precio;
-    private String categoria;
-    private boolean activo;
+    private String contrasena;
+
+    public Cuenta() {
+    }
+
+    public Cuenta(String correo, String nombre, String contrasena) {
+        this.correo = correo;
+        this.nombre = nombre;
+        this.contrasena = contrasena;
+    }
+
    
-
-    public Juegos() {
-    }
-
-    public Juegos(String categoria, boolean activo) {
-        this.categoria = categoria;
-        this.activo = activo;
-    }
 }
