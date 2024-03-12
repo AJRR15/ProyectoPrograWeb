@@ -21,21 +21,15 @@ public class JuegosServiceImpl implements JuegosService {
     
     @Autowired
     private Juegosdao juegosDao;
+    
 
     @Override
-    @Transactional(readOnly=true)
-    public List<Juegos> getJuegos(boolean activos) {
-        List<Juegos> juegos = juegosDao.findAll();
-        if (activos) {
-           juegos.removeIf(juego -> !juego.isActivo());
-        }
-        return juegos;
-    }
-    
-    @Override
     @Transactional(readOnly = true)
-    public Juegos getJuego(Juegos juego) {
-        return juegosDao.findById(juego.getIdJuego()).orElse(null);
-    }
-    
+    public List<Juegos> getJuegos(String nombre) {
+        if (nombre != null && !nombre.isEmpty()) {
+            return juegosDao.findByNombre(nombre);
+        } else {
+            return juegosDao.findAll();
+        }
+ }   
 }

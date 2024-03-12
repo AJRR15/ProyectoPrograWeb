@@ -7,7 +7,5 @@ import com.Proyecto.Proyecto.Domain.Juegos;
 import java.util.List;
 
 public interface JuegosService {    
-    // Se obtiene un listado de juegos en un List   
-    public List<Juegos> getJuegos(boolean activos); 
-    public Juegos getJuego(Juegos juego); 
+    List<Juegos> getJuegos(String nombre);
 }

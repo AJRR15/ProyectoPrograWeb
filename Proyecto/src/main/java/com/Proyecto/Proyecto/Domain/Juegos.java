@@ -17,7 +17,7 @@ public class Juegos implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_juego")
-    private Long idJuego;
+    private Long id_juego;
     private String imagen;
     private String nombre;
     private String empresa;
@@ -29,8 +29,14 @@ public class Juegos implements Serializable {
     public Juegos() {
     }
 
-    public Juegos(String categoria, boolean activo) {
+    public Juegos(String imagen, String nombre, String empresa, double precio, String categoria, boolean activo) {
+        this.imagen = imagen;
+        this.nombre = nombre;
+        this.empresa = empresa;
+        this.precio = precio;
         this.categoria = categoria;
         this.activo = activo;
     }
+
+    
 }
