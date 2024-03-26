@@ -1,8 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.Proyecto.Proyecto.Service.Impl;
+
 import com.Proyecto.Proyecto.Dao.Juegosdao;
 import com.Proyecto.Proyecto.Service.JuegosService;
 import com.Proyecto.Proyecto.Domain.Juegos;
@@ -11,17 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-/**
- *
- * @author JoseSapi
- */
-
 @Service
 public class JuegosServiceImpl implements JuegosService {
-    
+
     @Autowired
     private Juegosdao juegosDao;
-    
 
     @Override
     @Transactional(readOnly = true)
@@ -31,5 +22,29 @@ public class JuegosServiceImpl implements JuegosService {
         } else {
             return juegosDao.findAll();
         }
- }   
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Juegos getJuego(Juegos juegos) {
+        return juegosDao.findById(juegos.getId_juego()).orElse(null);
+    }
+
+    @Override
+    @Transactional
+    public void save(Juegos juegos) {
+        juegosDao.save(juegos);
+    }
+
+    @Override
+    @Transactional
+    public void delete(Juegos juegos) {
+        juegosDao.delete(juegos);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<Juegos> findByPrecioBetweenOrderByPrecio(double precioInf, double precioSup) {
+        return juegosDao.findByPrecioBetweenOrderByPrecio(precioInf, precioSup);
+    }
 }

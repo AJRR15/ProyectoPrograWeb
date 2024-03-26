@@ -1,8 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.Proyecto.Proyecto.Domain;
+
 import jakarta.persistence.*;
 import java.io.Serializable;
 import lombok.Data;
@@ -22,21 +19,20 @@ public class Juegos implements Serializable {
     private String nombre;
     private String empresa;
     private double precio;
-    private String categoria;
     private boolean activo;
-   
+    
+    @ManyToOne
+    @JoinColumn(name="id_categoria")
+    private Categoria categoria;
 
     public Juegos() {
     }
 
-    public Juegos(String imagen, String nombre, String empresa, double precio, String categoria, boolean activo) {
+    public Juegos(String imagen, String nombre, String empresa, double precio, boolean activo) {
         this.imagen = imagen;
         this.nombre = nombre;
         this.empresa = empresa;
         this.precio = precio;
-        this.categoria = categoria;
         this.activo = activo;
     }
-
-    
 }

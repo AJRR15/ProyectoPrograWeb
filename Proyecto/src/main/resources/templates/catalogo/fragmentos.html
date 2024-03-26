@@ -39,7 +39,7 @@
                                         <td th:text="${juego.nombre}" style="font-family: 'Gothic', sans-serif;"></td>
                                         <td th:text="${juego.empresa}"></td>
                                         <td th:text="'$' + ${juego.precio}"></td> <!-- Agregar signo de dólar al precio -->
-                                        <td th:text="${juego.categoria}"></td>
+                                        <td th:text="${juego.categoria.descripcion}"></td> <!-- Mostrar solo el nombre de la categoría -->
                                         <td th:text="${juego.activo}"></td>
                                         
                                         <td>
