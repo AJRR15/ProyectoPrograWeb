@@ -9,6 +9,8 @@
             font-family: Arial, sans-serif;
             background-color: #f8f9fa;
             color: #333;
+            margin: 0;
+            padding: 0;
         }
         .container {
             max-width: 960px;
@@ -41,7 +43,8 @@
             transform: translateY(-5px);
         }
         .product-item img {
-            max-width: 100%;
+            width: 100%; /* Establecer el ancho al 100% para que todas las imágenes tengan el mismo ancho */
+            max-width: 200px; /* Establecer un ancho máximo para evitar que las imágenes se estiren demasiado */
             height: auto;
             margin-bottom: 10px;
             border-radius: 5px;
@@ -74,28 +77,23 @@
 <body>
     <header th:replace="~{layout/plantilla :: header}"/>
     
-    <div class="container mt-4 text-center">
+    <div class="container mt-4">
         <h2 class="mb-4">¡Bienvenido a TuJuego.Com!</h2>
+        <br>
+        </br>
         <p>Somos una plataforma líder en la venta de videojuegos en línea. Con más de 10 años de experiencia en el mercado, nos hemos consolidado como una opción confiable para los amantes de los videojuegos.</p>
         <p>En TuJuego.Com, nuestra prioridad es ofrecer la mejor experiencia de compra a nuestros clientes. Garantizamos seguridad en todas las transacciones y una amplia selección de títulos para todas las plataformas.</p>
-        <h3 class="mt-5">Los juegos más vendidos del 2023</h3>
-        
-        <!-- Sección de cuadros de fotos para productos -->
-        <div class="product-grid mt-4">
-            <div class="product-item">
-                <img src="ruta/a/imagen1.jpg" alt="Producto 1">
-                <p>Descripción del Producto 1</p>
-            </div>
-            <div class="product-item">
-                <img src="ruta/a/imagen2.jpg" alt="Producto 2">
-                <p>Descripción del Producto 2</p>
-            </div>
-            <!-- Agrega más productos de manera similar -->
-        </div>
-        
+        <br>
+        </br>
+        <h3 class="mt-5">Las mas grandes noticias del mundo de los videojuegos</h3>
+        <br>
+        </br>       
         <!-- Video incrustado -->
         <div class="video-container mt-4">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/WYkurO2ZH-8?si=u37o4GbN78SuPTXP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/aBLHyN_4FzM?si=E6ARnhWHeguqOcwX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/6At0P_w7kZc?si=l7yW2BVvMFQMqeLl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/o7ZKqMnefsg?si=n0NZQ3ddaZdILyKZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/B2TBfClCXZw?si=bvN-tAQdlwo-4yPS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
     </div>
     
