@@ -47,10 +47,30 @@ public class JuegosServiceImpl implements JuegosService {
     public List<Juegos> findByPrecioBetweenOrderByPrecio(double precioInf, double precioSup) {
         return juegosDao.findByPrecioBetweenOrderByPrecio(precioInf, precioSup);
     }
+
     @Override
     @Transactional(readOnly = true)
     public List<Juegos> getJuegosPorCategoria(Long categoriaId) {
         return juegosDao.findByCategoria_IdCategoria(categoriaId);
     }
 
+    @Override
+    @Transactional(readOnly = true)
+    public List<Juegos> getJuegosConFiltros(Double precioInf, Double precioSup, Long categoriaId) {
+        if (precioInf != null && precioSup != null && categoriaId != null) {
+            return juegosDao.findByPrecioBetweenAndCategoriaIdOrderByPrecio(precioInf, precioSup, categoriaId);
+        } else if (precioInf != null && precioSup != null) {
+            return juegosDao.findByPrecioBetweenOrderByPrecio(precioInf, precioSup);
+        } else if (categoriaId != null) {
+            return juegosDao.findByCategoria_IdCategoria(categoriaId);
+        } else {
+            return juegosDao.findAll(); // Retornar todos los juegos si no se aplican filtros
+        }
+    }
+        @Override
+    @Transactional(readOnly = true)
+    public List<Juegos> findByNombreContaining(String nombre) {
+        return juegosDao.findByNombreContaining(nombre);
+    }
 }
+
