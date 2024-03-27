@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
 <head th:fragment="head">
     <title>TuJuego.Com</title>
     <meta charset="UTF-8"/>
@@ -19,7 +21,7 @@
                     <a class="nav-link fs-5 dropdown-toggle me-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Catalogo
                     </a>
-                    <ul class="dropdown-menu">
+                    <ul class="dropdown-menu" sec:authorize="hasRole('ROLE_ADMIN')">
                         <li><a class="dropdown-item" th:href="@{/juegos}">Juegos</a></li>
                     </ul>   
                 </div>
@@ -34,6 +36,29 @@
                         <button class="btn btn-outline-success" type="submit">Search</button>
                     </form>
                 </div>
+                    <ul class="navbar-nav" sec:authorize="!isAuthenticated()">
+                            <li class="nav-item">
+                                <a class="nav-link" th:href="@{/login}">
+                                    <i class="fas fa-sign-in-alt"></i>
+                                </a>
+                            </li>
+                    </ul>
+                    <ul class="navbar-nav" sec:authorize="isAuthenticated()">
+                            <li class="nav-item text-white my-auto">
+                                <img th:src="@{${session.usuarioImagen}}"
+                                     alt="Imágen del usuario"
+                                     height="40"
+                                     class="rounded-circle"/>
+                                <span sec:authentication="name">Santi</span>
+                            </li>
+                            <li class="nav-item my-auto">
+                                <form method="post" th:action="@{/logout}">
+                                    <button class="btn btn-dark">
+                                        <i class="fas fa-sign-out-alt"></i>
+                                    </button>                                    
+                                </form>
+                            </li>
+                    </ul>
             </div>
         </section>
     </header>
