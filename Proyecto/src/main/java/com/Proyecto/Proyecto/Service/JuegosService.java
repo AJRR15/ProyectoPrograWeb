@@ -13,4 +13,6 @@ public interface JuegosService {
     void delete(Juegos juegos);
 
     List<Juegos> findByPrecioBetweenOrderByPrecio(double precioInf, double precioSup);
+    List<Juegos> getJuegosPorCategoria(Long categoriaId);
+
 }

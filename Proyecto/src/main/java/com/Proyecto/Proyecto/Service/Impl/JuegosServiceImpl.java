@@ -47,4 +47,10 @@ public class JuegosServiceImpl implements JuegosService {
     public List<Juegos> findByPrecioBetweenOrderByPrecio(double precioInf, double precioSup) {
         return juegosDao.findByPrecioBetweenOrderByPrecio(precioInf, precioSup);
     }
+    @Override
+    @Transactional(readOnly = true)
+    public List<Juegos> getJuegosPorCategoria(Long categoriaId) {
+        return juegosDao.findByCategoria_IdCategoria(categoriaId);
+    }
+
 }

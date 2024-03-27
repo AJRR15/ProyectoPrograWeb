@@ -9,4 +9,6 @@ public interface Juegosdao extends JpaRepository<Juegos, Long> {
 
     // Updated method to order by descripcion
     List<Juegos> findByPrecioBetweenOrderByPrecio(double precioInf, double precioSup);
+    // Method to find juegos by categoria id
+    List<Juegos> findByCategoria_IdCategoria(Long categoriaId);
 }
