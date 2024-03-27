@@ -1,6 +1,75 @@
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="~{layout/plantilla :: head}">
     <title>TuJuego.Com</title>
+    <!-- Agregamos estilos CSS personalizados aquí -->
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h2 {
+            color: #007bff;
+        }
+        p {
+            line-height: 1.6;
+        }
+        /* Estilos para los cuadros de productos */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            justify-items: center;
+        }
+        .product-item {
+            border: 1px solid #ccc;
+            padding: 20px;
+            text-align: center;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+        .product-item:hover {
+            transform: translateY(-5px);
+        }
+        .product-item img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+        /* Estilos para el video incrustado */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        /* Estilos para el pie de página */
+        footer {
+            background-color: #343a40;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            margin-top: 50px;
+        }
+    </style>
 </head>
 <body>
     <header th:replace="~{layout/plantilla :: header}"/>
@@ -10,11 +79,34 @@
         <p>Somos una plataforma líder en la venta de videojuegos en línea. Con más de 10 años de experiencia en el mercado, nos hemos consolidado como una opción confiable para los amantes de los videojuegos.</p>
         <p>En TuJuego.Com, nuestra prioridad es ofrecer la mejor experiencia de compra a nuestros clientes. Garantizamos seguridad en todas las transacciones y una amplia selección de títulos para todas las plataformas.</p>
         <h3 class="mt-5">Los juegos más vendidos del 2023</h3>
-        <div class="embed-responsive embed-responsive-16by9 mx-auto mt-4">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/WYkurO2ZH-8?si=u37o4GbN78SuPTXP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" "allowfullscreen" ></iframe>
-                    </div>
+        
+        <!-- Sección de cuadros de fotos para productos -->
+        <div class="product-grid mt-4">
+            <div class="product-item">
+                <img src="ruta/a/imagen1.jpg" alt="Producto 1">
+                <p>Descripción del Producto 1</p>
+            </div>
+            <div class="product-item">
+                <img src="ruta/a/imagen2.jpg" alt="Producto 2">
+                <p>Descripción del Producto 2</p>
+            </div>
+            <!-- Agrega más productos de manera similar -->
+        </div>
+        
+        <!-- Video incrustado -->
+        <div class="video-container mt-4">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/WYkurO2ZH-8?si=u37o4GbN78SuPTXP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
     </div>
     
-    <footer th:replace="~{layout/plantilla :: footer}"/>               
+    <!-- Sección de Contáctenos en el pie de página -->
+    <footer th:replace="~{layout/plantilla :: footer}">
+        <div class="container text-center mt-5">
+            <h3>Contactatenos</h3>
+            <p>Si tienes alguna pregunta o comentario, no dudes en ponerte en contacto con nuestro equipo de atención al cliente.</p>
+            <p>Teléfono: +506</p>
+            <p>Correo electrónico: info@tujuego.com</p>
+        </div>
+    </footer>             
 </body>
 </html>
