@@ -27,8 +27,9 @@ public class JuegosServiceImpl implements JuegosService {
     @Override
     @Transactional(readOnly = true)
     public Juegos getJuego(Juegos juegos) {
-        return juegosDao.findById(juegos.getId_juego()).orElse(null);
-    }
+    return juegosDao.findById(juegos.getId_juego()).orElse(null);
+}
+
 
     @Override
     @Transactional
