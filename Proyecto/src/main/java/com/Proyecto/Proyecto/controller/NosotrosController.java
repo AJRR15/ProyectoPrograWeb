@@ -7,15 +7,11 @@ package com.Proyecto.Proyecto.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
-/**
- *
- * @author alejh
- */
 @Controller
-public class ContactoController {
+public class NosotrosController {
 
-    @GetMapping("/contacto")
-    public String mostrarPaginaContacto() {
-        return "contacto/contacto";
+    @GetMapping("/nosotros")
+    public String mostrarPaginaNosotros() {
+        return "nosotros/nosotros";
     }
 }

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout/plantilla :: head}">
+    <title>TuJuego.Com</title>
+    <!-- Agregamos estilos CSS personalizados aquí -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #007bff;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1, h2 {
+            color: #007bff;
+        }
+        p {
+            line-height: 1.6;
+        }
+        footer {
+            background-color: #343a40;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <header th:replace="~{layout/plantilla :: header}"/>
+
+    <div class="container">
+        <br>
+        </br>
+        <h2>Sobre Nosotros</h2>
+        <br>
+        </br>
+        <p>Somos TuJuego.Com, una tienda en línea dedicada a la venta de videojuegos. Fundada hace más de una década, nos hemos convertido en un referente en la industria del entretenimiento digital.</p>
+        <p>Nuestra misión es proporcionar a nuestros clientes la mejor experiencia de compra posible, ofreciendo una amplia gama de títulos para todas las plataformas, desde los clásicos hasta los últimos lanzamientos.</p>
+        <p>En TuJuego.Com, nos esforzamos por mantenernos actualizados con las últimas tendencias y tecnologías del mundo de los videojuegos. Nuestro equipo de expertos está siempre disponible para ayudarte a encontrar el juego perfecto para ti.</p>
+        <p>Además de ofrecer una selección diversa de juegos, también nos preocupamos por la seguridad y la privacidad de nuestros clientes. Todas las transacciones se realizan de forma segura y tus datos personales están protegidos en todo momento.</p>
+        <p>Gracias por confiar en nosotros como tu destino número uno para la compra de videojuegos en línea. ¡Esperamos verte pronto en TuJuego.Com!</p>
+        <p>Para cualquier consulta o comentario, no dudes en ponerte en contacto con nuestro equipo de atención al cliente. Estamos aquí para ayudarte en todo lo que necesites.</p>
+        <p>¡Gracias por ser parte de la familia TuJuego.Com!</p>
+    </div>
+    <br>
+    </br>
+    <br>
+    </br>
+    <div style="text-align: center;">
+        <h2>Nuestro Fundador</h2>
+        <br>
+        </br>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdKELtlH3N_cF5bj3Hmy48B99_CqTDmwE_rQ&usqp=CAU" alt="Imagen del Fundador" style="width: 200px; height: 200px;">
+            <br>
+        </br>
+        </div>
+    
+
+    <footer th:replace="~{layout/plantilla :: footer}">
+    </footer>
+</body>
+</html>
