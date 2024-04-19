@@ -59,7 +59,7 @@ public class JuegosController {
         List<Categoria> categorias = categoriaService.getCategorias(true);
         model.addAttribute("categorias", categorias);
 
-        return "juego/listado2";
+        return "juego/juegos";
     }
 
     @GetMapping("/juegosPorCategoria")
@@ -87,4 +87,28 @@ public class JuegosController {
         return "juego/juegos"; // Asegúrate de que la vista correspondiente sea la correcta
     }
 
+    @GetMapping("/nuevo")
+    public String hotelNuevo(Juegos juego) {
+        return "/juego/modifica";
+    }
+
+    
+    @PostMapping("/guardar")
+    public String hotelGuardar(Juegos juego) {        
+        juegosService.save(juego);
+        return "redirect:/juego/juegos";
+    }
+
+    @GetMapping("/eliminar/{id_juego}")
+    public String hotelEliminar(Juegos juego) {
+        juegosService.delete(juego);
+        return "redirect:/juego/juegos";
+    }
+
+    @GetMapping("/modificar/{id_juego}")
+    public String hotelModificar(Juegos juego, Model model) {
+        juego = juegosService.getJuego(juego);
+        model.addAttribute("juego", juego);
+        return "/juego/modifica";
+    }
 }
