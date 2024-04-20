@@ -23,7 +23,7 @@ public class Juegos implements Serializable {
     
     @ManyToOne
     @JoinColumn(name="id_categoria")
-    private Categoria categoria;
+    private Categorias categoria;
 
     public Juegos() {
     }

@@ -74,4 +74,3 @@ public class JuegosServiceImpl implements JuegosService {
         return juegosDao.findByNombreContaining(nombre);
     }
 }
-

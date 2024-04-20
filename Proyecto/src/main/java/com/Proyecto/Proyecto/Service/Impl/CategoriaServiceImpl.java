@@ -1,7 +1,7 @@
 package com.Proyecto.Proyecto.Service.Impl;
 
 import com.Proyecto.Proyecto.Dao.CategoriaDao;
-import com.Proyecto.Proyecto.Domain.Categoria;
+import com.Proyecto.Proyecto.Domain.Categorias;
 import com.Proyecto.Proyecto.Service.CategoriaService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +16,7 @@ public class CategoriaServiceImpl implements CategoriaService {
 
     @Override
     @Transactional(readOnly = true)
-    public List<Categoria> getCategorias(boolean activos) {
+    public List<Categorias> getCategorias(boolean activos) {
         var lista = categoriaDao.findAll();
         if (activos) {
             lista.removeIf(e -> !e.isActivo());
@@ -26,19 +26,19 @@ public class CategoriaServiceImpl implements CategoriaService {
 
     @Override
     @Transactional(readOnly = true)
-    public Categoria getCategoria(Categoria categoria) {
+    public Categorias getCategoria(Categorias categoria) {
         return categoriaDao.findById(categoria.getIdCategoria()).orElse(null);
     }
 
     @Override
     @Transactional
-    public void save(Categoria categoria) {
+    public void save(Categorias categoria) {
         categoriaDao.save(categoria);
     }
 
     @Override
     @Transactional
-    public void delete(Categoria categoria) {
+    public void delete(Categorias categoria) {
         categoriaDao.delete(categoria);
     }
     

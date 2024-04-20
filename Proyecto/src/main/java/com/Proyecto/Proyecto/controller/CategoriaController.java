@@ -1,7 +1,7 @@
 package com.Proyecto.Proyecto.controller;
 
 
-import com.Proyecto.Proyecto.Domain.Categoria;
+import com.Proyecto.Proyecto.Domain.Categorias;
 import com.Proyecto.Proyecto.Service.CategoriaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,33 +19,33 @@ public class CategoriaController {
     @Autowired
     private CategoriaService categoriaService;
     
-    @GetMapping("/listado")
+    @GetMapping("/categorias")
     private String listado(Model model) {
         var categorias = categoriaService.getCategorias(false);
         model.addAttribute("categorias", categorias);
         model.addAttribute("totalCategorias",categorias.size());
-        return "/categoria/listado";
+        return "/categoria/categorias";
     }
     
      @GetMapping("/nuevo")
-    public String categoriaNuevo(Categoria categoria) {
+    public String categoriaNuevo(Categorias categoria) {
         return "/categoria/modifica";
     }
 
     @PostMapping("/guardar")
-    public String categoriaGuardar(Categoria categoria) {        
+    public String categoriaGuardar(Categorias categoria) {        
         categoriaService.save(categoria);
-        return "redirect:/categoria/listado";
+        return "redirect:/categoria/categorias";
     }
 
     @GetMapping("/eliminar/{idCategoria}")
-    public String categoriaEliminar(Categoria categoria) {
+    public String categoriaEliminar(Categorias categoria) {
         categoriaService.delete(categoria);
-        return "redirect:/categoria/listado";
+        return "redirect:/categoria/categorias";
     }
 
     @GetMapping("/modificar/{idCategoria}")
-    public String categoriaModificar(Categoria categoria, Model model) {
+    public String categoriaModificar(Categorias categoria, Model model) {
         categoria = categoriaService.getCategoria(categoria);
         model.addAttribute("categoria", categoria);
         return "/categoria/modifica";

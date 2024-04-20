@@ -3,7 +3,7 @@ package com.Proyecto.Proyecto.controller;
 import com.Proyecto.Proyecto.Domain.Juegos;
 import com.Proyecto.Proyecto.Service.JuegosService;
 import com.Proyecto.Proyecto.Service.CategoriaService; // Importar el servicio de categorías
-import com.Proyecto.Proyecto.Domain.Categoria; // Importar la clase de categorías
+import com.Proyecto.Proyecto.Domain.Categorias; // Importar la clase de categorías
 import jakarta.servlet.http.HttpServletRequest;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,7 +40,7 @@ public class JuegosController {
         model.addAttribute("juegos", juegos);
 
         // Obtener todas las categorías y agregarlas al modelo
-        List<Categoria> categorias = categoriaService.getCategorias(true);
+        List<Categorias> categorias = categoriaService.getCategorias(true);
         model.addAttribute("categorias", categorias);
 
         return "juego/juegos";
@@ -56,7 +56,7 @@ public class JuegosController {
         model.addAttribute("precioInf", precioInf);
         model.addAttribute("precioSup", precioSup);
 
-        List<Categoria> categorias = categoriaService.getCategorias(true);
+        List<Categorias> categorias = categoriaService.getCategorias(true);
         model.addAttribute("categorias", categorias);
 
         return "juego/juegos";
@@ -73,7 +73,7 @@ public class JuegosController {
         model.addAttribute("juegos", juegos);
 
         // Obtener todas las categorías y agregarlas al modelo
-        List<Categoria> categorias = categoriaService.getCategorias(true);
+        List<Categorias> categorias = categoriaService.getCategorias(true);
         model.addAttribute("categorias", categorias);
 
         return "juego/juegos"; // Ruta correcta para la vista de juegos
@@ -110,7 +110,7 @@ public class JuegosController {
         model.addAttribute("juego", juego);
 
         // Obtener todas las categorías y agregarlas al modelo
-        List<Categoria> categorias = categoriaService.getCategorias(true);
+        List<Categorias> categorias = categoriaService.getCategorias(true);
         model.addAttribute("categorias", categorias);
 
         return "/juego/modifica";
