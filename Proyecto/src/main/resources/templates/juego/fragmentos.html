@@ -257,14 +257,10 @@
                                                            th:field="*{activo}">
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label for="id_categoria">ID Categoría</label>
-                                                    <select class="form-select" 
-                                                            name="categoria.idCategoria"
-                                                            th:field="*{categoria.idCategoria}"
-                                                            required="true">
-                                                        <option th:each="c : ${categorias}" 
-                                                                th:value="${c.idCategoria}"
-                                                                th:text="${c.descripcion}"></option>
+                                                    <label for="id_categoria">Categoría</label>
+                                                    <select class="form-select" name="categoria.idCategoria" required="true" th:field="*{categoria.idCategoria}">
+                                                        <option value="">Selecciona una categoría</option>
+                                                        <option th:each="c : ${categorias}" th:value="${c.idCategoria}" th:text="${c.descripcion}"></option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -282,7 +278,7 @@
             <div class="container py-4 mb-4">
                 <div class="row">
                     <div class="col-md-4 d-grid">
-                        <a th:href="@{/juego/listado}" class="btn btn-primary">
+                        <a th:href="@{/juego/juegos}" class="btn btn-primary">
                             <i class="fas fa-arrow-left"></i>
                         </a>
                     </div>

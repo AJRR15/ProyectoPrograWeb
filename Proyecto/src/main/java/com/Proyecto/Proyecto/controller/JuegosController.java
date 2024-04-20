@@ -92,9 +92,8 @@ public class JuegosController {
         return "/juego/modifica";
     }
 
-    
     @PostMapping("/guardar")
-    public String hotelGuardar(Juegos juego) {        
+    public String hotelGuardar(Juegos juego) {
         juegosService.save(juego);
         return "redirect:/juego/juegos";
     }
@@ -109,6 +108,11 @@ public class JuegosController {
     public String hotelModificar(Juegos juego, Model model) {
         juego = juegosService.getJuego(juego);
         model.addAttribute("juego", juego);
+
+        // Obtener todas las categorías y agregarlas al modelo
+        List<Categoria> categorias = categoriaService.getCategorias(true);
+        model.addAttribute("categorias", categorias);
+
         return "/juego/modifica";
     }
 }
