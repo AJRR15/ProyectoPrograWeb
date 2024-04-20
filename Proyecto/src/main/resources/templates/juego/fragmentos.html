@@ -6,66 +6,68 @@
 
     <body>
         <!-- Sección para crear el botón de agregar... llamará a una ventana modal -->
-    <section th:fragment="BotonAgregar" class="py-4 mb-4">
-        <div class="container" sec:authorize="hasRole('ROLE_ADMIN')">
-            <div class="row">
-                <div class="col-md-3">
-                    <button type="button" class="btn btn-primary btn-block" data-bs-toggle="modal" data-bs-target="#ModalAgregar">
-                        <i class="fas fa-plus"></i> Agregar
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Ventana modal para agregar un juego -->
-    <section th:fragment="ModalAgregar">
-        <div id="ModalAgregar" class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-md">
-                <div class="modal-content">
-                    <div class="modal-header bg-info text-white">
-                        <h5 class="modal-title">Agregar Juego</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <section th:fragment="BotonAgregar" class="py-4 mb-4">
+            <div class="container" sec:authorize="hasRole('ROLE_ADMIN')">
+                <div class="row">
+                    <div class="col-md-3">
+                        <button type="button" class="btn btn-primary btn-block" data-bs-toggle="modal" data-bs-target="#ModalAgregar">
+                            <i class="fas fa-plus"></i> Agregar
+                        </button>
                     </div>
-                    <form th:action="@{/juego/guardar}" method="POST" class="was-validated" enctype="multipart/form-data">
-                        <div class="modal-body">
-                            <div class="mb-3">
-                                <label for="imagen">Imagen</label>
-                                <input type="text" class="form-control" name="imagen" required="true" />
-                            </div>
-                            <div class="mb-3">
-                                <label for="nombre">Nombre</label>
-                                <input type="text" class="form-control" name="nombre" required="true" />
-                            </div>
-                            <div class="mb-3">
-                                <label for="empresa">Empresa</label>
-                                <input type="text" class="form-control" name="empresa" required="true" />
-                            </div>
-                            <div class="mb-3">
-                                <label for="precio">Precio</label>
-                                <input type="number" class="form-control" name="precio" required="true" />
-                            </div>
-                            <div class="mb-3">
-                                <label for="categoria">Categoría</label>
-                                <input type="text" class="form-control" name="categoria" required="true" />
-                            </div>
-                            <div class="mb-3 form-check">
-                                <input type="checkbox" class="form-check-input" id="activo" name="activo" />
-                                <label class="form-check-label" for="activo">Activo</label>
-                            </div>
-                            <div class="mb-3">
-                                <label for="id_categoria">ID Categoría</label>
-                                <input type="text" class="form-control" name="id_categoria" required="true" />
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary">Guardar</button>
-                        </div>
-                    </form>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <!-- Ventana modal para agregar un juego -->
+        <section th:fragment="ModalAgregar">
+            <div id="ModalAgregar" class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-md">
+                    <div class="modal-content">
+                        <div class="modal-header bg-info text-white">
+                            <h5 class="modal-title">Agregar Juego</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <form th:action="@{/juego/guardar}" method="POST" class="was-validated" enctype="multipart/form-data">
+                            <div class="modal-body">
+                                <div class="mb-3">
+                                    <label for="imagen">Imagen</label>
+                                    <input type="text" class="form-control" name="imagen" required="true" />
+                                </div>
+                                <div class="mb-3">
+                                    <label for="nombre">Nombre</label>
+                                    <input type="text" class="form-control" name="nombre" required="true" />
+                                </div>
+                                <div class="mb-3">
+                                    <label for="empresa">Empresa</label>
+                                    <input type="text" class="form-control" name="empresa" required="true" />
+                                </div>
+                                <div class="mb-3">
+                                    <label for="precio">Precio</label>
+                                    <input type="number" class="form-control" name="precio" required="true" />
+                                </div>
+                                <div class="mb-3 form-check">
+                                    <input type="checkbox" class="form-check-input" id="activo" name="activo" />
+                                    <label class="form-check-label" for="activo">Activo</label>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="id_categoria">ID Categoría</label>
+                                    <select class="form-select" 
+                                            name="categoria.idCategoria"
+                                            required="true">
+                                        <option th:each="c : ${categorias}" 
+                                                th:value="${c.idCategoria}"
+                                                th:text="${c.descripcion}"></option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-primary">Guardar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <!-- Sección principal para mostrar la información de los juegos -->
         <section th:fragment="listadoJuegos" id="juegos">
@@ -79,7 +81,7 @@
                             <div class="card-body">
                                 <div th:if="${juegos != null and not #lists.isEmpty(juegos)}" class="table-responsive">
                                     <table class="table table-striped table-hover">
-                                        <thead class="table-dark">
+                                        <thead class="table-dark" >
                                             <tr>
                                                 <th>#</th>
                                                 <th>Imagen</th>
@@ -88,6 +90,7 @@
                                                 <th>Precio</th>
                                                 <th>Categoría</th>
                                                 <th>Activo</th>
+                                                <th></th>
                                                 <th></th>
                                             </tr>
                                         </thead>
@@ -110,6 +113,16 @@
                                                     <a th:href="@{'/CarroDeCompras/' + ${juego.id_juego}}" class="btn btn-primary">
                                                         <i class="fas fa-shopping-cart"></i> Añadir al carrito
                                                     </a>
+                                                </td>
+                                                <td>
+                                                    <div>
+                                                        <a th:href="@{/juego/eliminar/}+${juego.id_juego}" class="btn btn-danger">
+                                                            <i class="fas fa-trash"></i> Eliminar
+                                                        </a>
+                                                        <a th:href="@{/juego/modificar/}+${juego.id_juego}" class="btn btn-success">
+                                                            <i class="fas fa-pencil"></i> Actualizar
+                                                        </a>
+                                                    </div>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -191,6 +204,104 @@
                 </div>
             </div>
         </section>
+        <!-- 4 Fragmento que se utiliza en la página modifca.html -->
+        <section th:fragment="ModificarJuegos">
+            <div class="row">
+                <div class="col-md-8">
+                    <form method="POST"
+                          th:action="@{/juego/guardar}" 
+                          th:object="${juego}"
+                          class="was-validated"                          
+                          enctype="multipart/form-data">
+                        <input type="hidden" name="id_juego" th:field="*{id_juego}"/>
+                        <section th:replace="~{juego/fragmentos :: BotonesModificar}"/>
+                        <div id=details>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <h4>Modificar</h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="mb-3">
+                                                    <label for="imagen">Imagen</label>
+                                                    <input type="text" class="form-control" 
+                                                           name="imagen" th:field="*{imagen}"
+                                                           required="true">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="nombre">Nombre</label>
+                                                    <input type="text" class="form-control" 
+                                                           name="nombre" th:field="*{nombre}"
+                                                           required="true">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="empresa">Empresa</label>
+                                                    <input type="text" class="form-control" 
+                                                           name="empresa" th:field="*{empresa}"
+                                                           required="true">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="precio">Precio</label>
+                                                    <input type="number" class="form-control" 
+                                                           name="precio" th:field="*{precio}"
+                                                           required="true">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="activo">Activo</label>
+                                                    <input class="form-check-input" 
+                                                           type="checkbox" 
+                                                           name="activo" 
+                                                           id="activo"
+                                                           th:field="*{activo}">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="id_categoria">ID Categoría</label>
+                                                    <select class="form-select" 
+                                                            name="categoria.idCategoria"
+                                                            th:field="*{categoria.idCategoria}"
+                                                            required="true">
+                                                        <option th:each="c : ${categorias}" 
+                                                                th:value="${c.idCategoria}"
+                                                                th:text="${c.descripcion}"></option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5 Fragmento que se utiliza en el fragmento anterior -->
+        <section th:fragment="BotonesModificar">
+            <div class="container py-4 mb-4">
+                <div class="row">
+                    <div class="col-md-4 d-grid">
+                        <a th:href="@{/juego/listado}" class="btn btn-primary">
+                            <i class="fas fa-arrow-left"></i>
+                        </a>
+                    </div>
+                    <div class="col-md-4 d-grid">                                
+                        <a th:href="@{/juego/eliminar/}+${juego.id_juego}"
+                           class="btn btn-danger">
+                            <i class="fas fa-trash"></i>
+                        </a>
+                    </div>
+                    <div class="col-md-4 d-grid">
+                        <button type="submit" class="btn btn-success">
+                            <i class="fas fa-check"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
     </body>
 
 </html>
