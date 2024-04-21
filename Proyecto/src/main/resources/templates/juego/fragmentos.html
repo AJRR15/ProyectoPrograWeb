@@ -116,10 +116,10 @@
                                                 </td>
                                                 <td>
                                                     <div>
-                                                        <a th:href="@{/juego/eliminar/}+${juego.id_juego}" class="btn btn-danger">
+                                                        <a th:href="@{/juego/eliminar/}+${juego.id_juego}" class="btn btn-danger" sec:authorize="hasRole('ROLE_ADMIN')">
                                                             <i class="fas fa-trash"></i> Eliminar
                                                         </a>
-                                                        <a th:href="@{/juego/modificar/}+${juego.id_juego}" class="btn btn-success">
+                                                        <a th:href="@{/juego/modificar/}+${juego.id_juego}" class="btn btn-success" sec:authorize="hasRole('ROLE_ADMIN')">
                                                             <i class="fas fa-pencil"></i> Actualizar
                                                         </a>
                                                     </div>

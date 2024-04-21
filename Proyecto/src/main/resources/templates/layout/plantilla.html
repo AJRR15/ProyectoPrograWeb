@@ -21,18 +21,38 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" th:href="@{/juego/juegos}">Juegos</a></li>
-                        <li><a class="dropdown-item" th:href="@{/categoria/categorias}">Categoria</a></li>
+                        <li><a class="dropdown-item" th:href="@{/categoria/categorias}"sec:authorize="hasRole('ROLE_ADMIN')">Categoria</a></li>
                     </ul>   
                 </div>
                 <div class="d-flex align-items-center">
-                    <a class="nav-link fs-5 me-2" th:href="@{/usuario/listado}">Usuarios</a>
-                    <a class="nav-link fs-5 me-2" th:href="@{/iniciarsesion}">Iniciar Sesión</a>
+                    <a class="nav-link fs-5 me-2" th:href="@{/usuario/listado}" sec:authorize="hasRole('ROLE_ADMIN')">Usuarios</a>
                     <a class="nav-link fs-5 me-2" th:href="@{/contacto}">Contactenos</a>
                     <a class="nav-link fs-5 me-2" th:href="@{/nosotros}">Nosotros</a>
                     <a class="nav-link fs-5 me-2" th:href="@{/carro}">Mi Carrito</a>
                 </div>
+                <div class="col-md-3">
+                            <ul class="navbar-nav" sec:authorize="!isAuthenticated()">
+                                <li class="nav-item">
+                                    <a class="nav-link" th:href="@{/login}">
+                                        <i class="fas fa-sign-in-alt"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="navbar-nav" sec:authorize="isAuthenticated()">
+                                <li class="nav-item text-white my-auto">
+                                    <span sec:authentication="name" style="color: black;"></span>
+                                </li>
+                                <li class="nav-item my-auto">
+                                    <form method="post" th:action="@{/logout}">
+                                        <button class="btn btn-dark">
+                                            <i class="fas fa-sign-out-alt"></i>
+                                        </button>
+                                    </form>
+                                </li>
+                            </ul>
+                        </div>
             </div>
-        </section>
+        </section>1        
     </header>
 
     <!-- End Header -->
