@@ -19,6 +19,7 @@ public class Juegos implements Serializable {
     private String nombre;
     private String empresa;
     private double precio;
+    private int existencias;
     private boolean activo;
     
     @ManyToOne
@@ -28,11 +29,5 @@ public class Juegos implements Serializable {
     public Juegos() {
     }
 
-    public Juegos(String imagen, String nombre, String empresa, double precio, boolean activo) {
-        this.imagen = imagen;
-        this.nombre = nombre;
-        this.empresa = empresa;
-        this.precio = precio;
-        this.activo = activo;
-    }
+    
 }

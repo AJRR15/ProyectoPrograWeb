@@ -45,6 +45,10 @@
                                     <label for="precio">Precio</label>
                                     <input type="number" class="form-control" name="precio" required="true" />
                                 </div>
+                                <div class="mb-3">
+                                    <label for="existencias">Existencia</label>
+                                    <input type="number" class="form-control" name="existencias" required="true" />
+                                </div>
                                 <div class="mb-3 form-check">
                                     <input type="checkbox" class="form-check-input" id="activo" name="activo" />
                                     <label class="form-check-label" for="activo">Activo</label>
@@ -88,6 +92,7 @@
                                                 <th>Nombre</th>
                                                 <th>Empresa</th>
                                                 <th>Precio</th>
+                                                <th>Existencia</th>
                                                 <th>Categoría</th>
                                                 <th>Activo</th>
                                                 <th></th>
@@ -101,6 +106,7 @@
                                                 <td th:text="${juego.nombre}" style="font-family: 'Gothic', sans-serif;"></td>
                                                 <td th:text="${juego.empresa}"></td>
                                                 <td th:text="'$' + ${juego.precio}"></td> <!-- Agregar signo de dólar al precio -->
+                                                <td th:text="${juego.existencias}"></td>
                                                 <td th:text="${juego.categoria.descripcion}"></td> <!-- Mostrar solo el nombre de la categoría -->
                                                 <td th:text="${juego.activo}"></td>
 
@@ -233,6 +239,10 @@
                                     <div class="mb-3">
                                         <label for="precio">Precio</label>
                                         <input type="number" class="form-control" name="precio" th:field="*{precio}" required="true">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="existencias">Existencia</label>
+                                        <input type="number" class="form-control" name="existencias" th:field="*{existencias}" required="true">
                                     </div>
                                     <div class="mb-3">
                                         <label for="activo">Activo</label>
