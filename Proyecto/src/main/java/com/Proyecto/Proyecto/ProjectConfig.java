@@ -49,14 +49,6 @@ public class ProjectConfig implements WebMvcConfigurer {
         registro.addInterceptor(localeChangeInterceptor());
     }
 
-    @Bean("messageSource")
-    public MessageSource messageSource() {
-        ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
-        messageSource.setBasenames("messages");
-        messageSource.setDefaultEncoding("UTF-8");
-        return messageSource;
-    }
-
     /* Los siguiente métodos son para implementar el tema de seguridad dentro del proyecto */
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
@@ -67,7 +59,7 @@ public class ProjectConfig implements WebMvcConfigurer {
     }
 
    @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {http.authorizeHttpRequests((request) -> request.requestMatchers("/", "/index","/mensaje", "/errores/**", "/js/**","/css/**","/images/**", "/webjars/**","/registro/**","/carrito/**").permitAll()
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {http.authorizeHttpRequests((request) -> request.requestMatchers("/", "/index","/mensaje", "/errores/**", "/js/**","/facturar/**", "/css/**","/images/**", "/webjars/**","/registro/**","/carrito/**").permitAll()
                 .requestMatchers("/juego/filtrarPorNombre", "/nosotros","/contacto","/juego/juegos","/juego/juegosPorCategoria","/juego/query1","/carro/**").hasRole("USER").requestMatchers(
                         "/juego/**","/categoria/**","/usuario/**").hasRole("ADMIN")).formLogin((form) -> form.loginPage("/login").permitAll()).logout((logout) -> logout.permitAll());
         return http.build();

@@ -20,6 +20,8 @@ function addCard(formulario) {
     var valor = formulario.elements[0].value;
     var url = '/carrito/agregar';
     url = url + '/' + valor;
+    // Imprime los valores en la consola
+    console.log("Valor:", valor);
+    console.log("URL:", url);
     $("#resultsBlock").load(url);
 }
-

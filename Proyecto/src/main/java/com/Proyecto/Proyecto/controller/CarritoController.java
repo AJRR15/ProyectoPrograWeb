@@ -47,15 +47,17 @@ public class CarritoController {
     }
 
     //Para Agregar un producto al carrito
-    @GetMapping("/carrito/agregar/{idProducto}")
+    @GetMapping("/carrito/agregar/{id_juego}")
     public ModelAndView agregarItem(Model model, Item item) {
         Item item2 = itemService.get(item);
+        System.out.println(item2);
         if (item2 == null) {
             Juegos juegos = juegosService.getJuego(item);
             item2 = new Item(juegos);
 
         }
         itemService.save(item2);
+        System.out.println(item2);
         var lista = itemService.gets();
         var totalCarritos = 0;
         var carritoTotalVenta = 0;
@@ -70,7 +72,7 @@ public class CarritoController {
     }
     //Para mofificar un producto del carrito
 
-    @GetMapping("/carrito/modificar/{idProducto}")
+    @GetMapping("/carrito/modificar/{id_juego}")
     public String modificarItem(Item item, Model model) {
         item = itemService.get(item);
         model.addAttribute("item", item);
@@ -78,7 +80,7 @@ public class CarritoController {
     }
     //Para eliminar un elemento del carrito
 
-    @GetMapping("/carrito/eliminar/{idProducto}")
+    @GetMapping("/carrito/eliminar/{id_juego}")
     public String eliminarItem(Item item) {
         itemService.delete(item);
         return "redirect:/carrito/listado";
