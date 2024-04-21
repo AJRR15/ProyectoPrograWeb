@@ -28,7 +28,7 @@
                     <a class="nav-link fs-5 me-2" th:href="@{/usuario/listado}" sec:authorize="hasRole('ROLE_ADMIN')">Usuarios</a>
                     <a class="nav-link fs-5 me-2" th:href="@{/contacto}">Contactenos</a>
                     <a class="nav-link fs-5 me-2" th:href="@{/nosotros}">Nosotros</a>
-                    <a class="nav-link fs-5 me-2" th:href="@{/carro}">Mi Carrito</a>
+                    <a class="nav-link fs-5 me-2" th:href="@{/carrito/listado}">Mi Carrito</a>
                 </div>
                 <div class="col-md-3">
                             <ul class="navbar-nav" sec:authorize="!isAuthenticated()">

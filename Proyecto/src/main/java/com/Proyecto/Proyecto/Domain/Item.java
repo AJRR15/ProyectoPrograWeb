@@ -23,7 +23,7 @@ public class Item extends Juegos {
         super.setNombre(juegos.getNombre());
         super.setEmpresa(juegos.getEmpresa());
         super.setPrecio(juegos.getPrecio());
-//        super.setExistencias(juegos.getExistencias());
+        super.setExistencias(juegos.getExistencias());
         super.setActivo(juegos.isActivo());
         super.setCategoria(juegos.getCategoria());
         this.cantidad = 0;
