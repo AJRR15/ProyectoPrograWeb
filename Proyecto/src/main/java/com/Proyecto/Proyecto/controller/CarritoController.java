@@ -124,7 +124,7 @@ public class CarritoController {
         System.out.println(item2);
         var lista = itemService.gets();
         var totalCarritos = 0;
-        var carritoTotalVenta = 0;
+        double carritoTotalVenta = 0;
         for (Item i : lista) {
             totalCarritos += i.getCantidad();
             carritoTotalVenta += (i.getCantidad() * i.getPrecio());
