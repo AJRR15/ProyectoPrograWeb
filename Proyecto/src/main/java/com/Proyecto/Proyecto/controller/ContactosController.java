@@ -22,11 +22,11 @@ public class ContactosController {
     public String mostrarPaginaContacto(Model model) {
         var contactos = contactosService.getContactos(null);
         model.addAttribute("contactos", contactos);
-        return "contacto/contactos";
+        return "contacto/listado";
     }
 
     @PostMapping("/guardar")
-    public String guardarContacto(@ModelAttribute("contacto") Contactos contacto) {
+    public String guardarContacto(Contactos contacto) {
         contactosService.save(contacto);
         return "redirect:/contacto/contactos";
     }

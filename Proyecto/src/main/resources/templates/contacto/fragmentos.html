@@ -11,7 +11,7 @@
                 <div class="row">
                     <div class="col-md-3">
                         <button type="button" class="btn btn-primary btn-block" data-bs-toggle="modal" data-bs-target="#ModalAgregar">
-                            <i class="fas fa-plus"></i> Agregar
+                            <i class="fas fa-plus"></i> Agregar Comentario 
                         </button>
                     </div>
                 </div>
@@ -54,6 +54,43 @@
                 </div>
             </div>
         </section>
+        <section th:fragment="agregarContacto">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>Agregar Comentario</h4>
+                            </div>
+                            <div class="card-body">
+                                <form th:action="@{/contacto/guardar}" method="post">
+                                    <div class="mb-3">
+                                        <label for="nombre">Nombre</label>
+                                        <input type="text" class="form-control" id="nombre" name="nombre" required="required"/>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="apellido">Apellido</label>
+                                        <input type="text" class="form-control" id="apellido" name="apellido" required="required"/>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="numero">Número de teléfono</label>
+                                        <input type="number" class="form-control" id="numero" name="numero" required="required"/>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="mensaje">Mensaje</label>
+                                        <textarea class="form-control" id="mensaje" name="mensaje" rows="3" required="required"></textarea>
+                                    </div>
+                                    <div class="card-footer text center">
+                                        <button class="btn btn-primary" type="submit">Guardar</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Sección principal para mostrar la información de los juegos -->
         <section th:fragment="listadoContactos" id="contactos">
             <div class="container">
