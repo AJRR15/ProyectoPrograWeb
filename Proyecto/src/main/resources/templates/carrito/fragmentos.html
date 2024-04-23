@@ -116,5 +116,74 @@
                 </div>
             </div>
         </section>
+        
+        <section th:fragment="filtros" class="bg-dark">
+            <div class="row py-2">
+                <div class="col-md-1"></div>
+                <div class="col-md-3">
+                    <form method="POST" th:action="@{/query1}" class="was-validated">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="mb-3">
+                                    <label for="precioInf">Ingrese el Precio Menor</label>
+                                    <input type="number" class="form-control" th:value="${precioInf}" th:name="precioInf" required="true" />
+                                </div>
+                                <div class="mb-3">
+                                    <label for="precioSup">Ingrese el Precio Mayor</label>
+                                    <input type="number" class="form-control" th:value="${precioSup}" th:name="precioSup" required="true" />
+                                </div>
+                            </div>
+                            <div class="card-footer text-center">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-check"></i> Buscar
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Agregar formulario para filtrar por nombre de juego -->
+                <div class="col-md-3">
+                    <form method="POST" th:action="@{/filtrarPorNombre}" class="was-validated">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="mb-3">
+                                    <label for="nombre">Buscar por Nombre de Juego</label>
+                                    <input type="text" class="form-control" th:value="${nombre}" name="nombre" required="true" />
+                                </div>
+                            </div>
+                            <div class="card-footer text-center">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-search"></i> Buscar
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Agregar formulario para filtrar por categoría -->
+                <div class="col-md-3">
+                    <form method="GET" th:action="@{/juegosPorCategoria}" class="was-validated">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="mb-3">
+                                    <label for="categoriaId">Filtrar por Categoría</label>
+                                    <select name="categoriaId" class="form-select">
+                                        <option value="">Todas las categorías</option>
+                                        <option th:each="categoria : ${categorias}" th:value="${categoria.idCategoria}" th:text="${categoria.descripcion}"></option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="card-footer text-center">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-filter"></i> Filtrar
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
     </body>
 </html>
