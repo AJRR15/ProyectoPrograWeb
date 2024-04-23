@@ -8,37 +8,38 @@
     </head>
     <body>
         <section th:fragment="listadoJuegos" id="juegos">
-    <div class="container">
-        <div class="row row-cols-2" >
-            <h2 class="inline">Juegos Destacados</h2>
-            <div id="resultsBlock"></div>
-        </div>
-        <div class="row row-cols-3" th:if="${juegos != null and !juegos.empty}">
-            <div class="card" th:each="juego : ${juegos}">
-                <div class="card-body">
-                    <h5 class="card-title">[[${juego.nombre}]]</h5>
-                    <figure>
-                        <img th:src="@{${juego.imagen}}" height="200"/>
-                        <figcaption>[[${juego.precio} + ' (' + ${juego.existencias} + ')']]</figcaption>
-                    </figure>
-                    <form>
-                        <input type="hidden" name="id" th:value="${juego.id_juego}"/>
-                        <input type="hidden" name="existencia" th:value="${juego.existencias}"/>
-                        <button class="btn btn-light" id="addCar" name="addCar" onclick="addCard(this.form)" type="button"><i class="fas fa-cart-plus"></i></button>
-   
-                    </form>
-                    <p class="card-text">[[${juego.empresa}]]</p> 
+            <div class="container">
+                <div class="card" style="background-color: rgba(0, 0, 0, 0.5);">
+                    <div class="container" style="background-color: rgba(0, 0, 0, 0); padding: 10px; text-align: center;">
+                        <h2 class="inline" style="color: white;" >Juegos Destacados</h2>
+                    </div>
+                    <div class="col">
+                        <div id="resultsBlock"></div>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div th:if="${juegos == null or juegos.empty}">[[#{carrito.no_mostrar}]]</div>
-    </div>
-</section>
+                <div class="row row-cols-3" th:if="${juegos != null and !juegos.empty}">
+                    <div class="card" th:each="juego : ${juegos}" style="background-color: rgba(0, 0, 0, 0.5);">
+                        <div class="card-body" style="color: white;">
+                            <h5 class="card-title">[[${juego.nombre}]]</h5>
+                            <figure style="">
+                                <img th:src="@{${juego.imagen}}" height="200"/>
+                                <figcaption>[[${juego.precio} + ' (' + ${juego.existencias} + ')']]</figcaption>
+                            </figure>
+                            <form>
+                                <input type="hidden" name="id" th:value="${juego.id_juego}"/>
+                                <input type="hidden" name="existencia" th:value="${juego.existencias}"/>
+                                <button class="btn btn-light" id="addCar" name="addCar" onclick="addCard(this.form)" type="button"><i class="fas fa-cart-plus"></i></button>
+                            </form>
+                            <p class="card-text">[[${juego.empresa}]]</p> 
+                        </div>
+                    </div>
+                </div>
+        </section>
         <div th:fragment="verCarrito" th:unless="${#lists.isEmpty(listaItems)}"> 
             <form action="/carrito/listado">
                 <button type="submit" class="btn btn-primary">
                     <i class="fas fa-cart-plus"></i>
-                    [[#{carrito.verCarrito}]] [[${listaTotal}]]
+                    Ver Articulos del Carrito [[${listaTotal}]]
                 </button>
             </form>
         </div> 
@@ -48,17 +49,17 @@
                     <div class="col-md-9">
                         <div class="card">
                             <div class="card-header">
-                                <h4>carrito de compras</h4>
+                                <h4>Carrito de compras</h4>
                             </div>
                             <div th:if="${items != null and !items.empty}">
                                 <table class="table table-stryped">
                                     <thead class="thead-dark">
                                         <tr>
                                             <th>#</th>
-                                            <th>nombre</th>
-                                            <th>[[#{juego.precio}]]</th>
-                                            <th>[[#{carrito.cantidad}]]</th>
-                                            <th>[[#{carrito.total}]]</th>
+                                            <th>Nombre</th>
+                                            <th>Precio</th>
+                                            <th>Cantidad</th>
+                                            <th>Total</th>
                                             <th></th>
                                             <th></th>
                                         </tr>
@@ -90,17 +91,17 @@
                         </div>
                     </div>
                     <div class="col-md-3">
-                        <div class="card text-center bg-primary text-white mb-3">
+                        <div class="card text-center bg-light text-white mb-3">
                             <div class="card-body">
-                                <h3>[[#{carrito.totalCompra}]]</h3>
+                                <h3>Monto Total]</h3>
                                 <h4 class="fs-4">[[${carritoTotal}]]</h4>
                             </div>
                         </div>
                         <div class="card text-center bg-success text-white mb-3">
                             <div class="card-body">
-                                <a th:href="@{/}" class="btn btn-success">
+                                <a th:href="@{/}" class="btn btn-light">
                                     <i class='fas fa-reply'>
-                                    </i> [[#{carrito.seguirComprando}]]
+                                    </i>Seguir Comprando
                                 </a>
                             </div>
                         </div>
@@ -108,7 +109,7 @@
                              text-white mb-3">
                             <div class="card-body">
                                 <a th:href="@{/facturar/carrito}"class="btn btn-info">
-                                    <i class='fas fa-fordward'></i> [[#{carrito.facturar}]]
+                                    <i class='fas fa-fordward'></i> Facturar y Pagar
                                 </a>
                             </div>
                         </div> 
@@ -116,25 +117,25 @@
                 </div>
             </div>
         </section>
-        
-        <section th:fragment="filtros" class="bg-dark">
+
+        <section th:fragment="filtros">
             <div class="row py-2">
                 <div class="col-md-1"></div>
                 <div class="col-md-3">
                     <form method="POST" th:action="@{/query1}" class="was-validated">
-                        <div class="card">
+                        <div class="card" style="background-color: rgba(0, 0, 0, 0.5);">
                             <div class="card-body">
                                 <div class="mb-3">
-                                    <label for="precioInf">Ingrese el Precio Menor</label>
+                                    <label for="precioInf" style="color: white;">Ingrese el Precio Menor</label>
                                     <input type="number" class="form-control" th:value="${precioInf}" th:name="precioInf" required="true" />
                                 </div>
                                 <div class="mb-3">
-                                    <label for="precioSup">Ingrese el Precio Mayor</label>
+                                    <label for="precioSup" style="color: white;">Ingrese el Precio Mayor</label>
                                     <input type="number" class="form-control" th:value="${precioSup}" th:name="precioSup" required="true" />
                                 </div>
                             </div>
                             <div class="card-footer text-center">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-light">
                                     <i class="fas fa-check"></i> Buscar
                                 </button>
                             </div>
@@ -145,15 +146,15 @@
                 <!-- Agregar formulario para filtrar por nombre de juego -->
                 <div class="col-md-3">
                     <form method="POST" th:action="@{/filtrarPorNombre}" class="was-validated">
-                        <div class="card">
+                        <div class="card" style="background-color: rgba(0, 0, 0, 0.5);">
                             <div class="card-body">
                                 <div class="mb-3">
-                                    <label for="nombre">Buscar por Nombre de Juego</label>
+                                    <label for="nombre" style="color: white;">Buscar por Nombre de Juego</label>
                                     <input type="text" class="form-control" th:value="${nombre}" name="nombre" required="true" />
                                 </div>
                             </div>
                             <div class="card-footer text-center">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-light">
                                     <i class="fas fa-search"></i> Buscar
                                 </button>
                             </div>
@@ -164,10 +165,10 @@
                 <!-- Agregar formulario para filtrar por categoría -->
                 <div class="col-md-3">
                     <form method="GET" th:action="@{/juegosPorCategoria}" class="was-validated">
-                        <div class="card">
+                        <div class="card" style="background-color: rgba(0, 0, 0, 0.5);">
                             <div class="card-body">
                                 <div class="mb-3">
-                                    <label for="categoriaId">Filtrar por Categoría</label>
+                                    <label for="categoriaId" style="color: white;">Filtrar por Categoría</label>
                                     <select name="categoriaId" class="form-select">
                                         <option value="">Todas las categorías</option>
                                         <option th:each="categoria : ${categorias}" th:value="${categoria.idCategoria}" th:text="${categoria.descripcion}"></option>
@@ -175,7 +176,7 @@
                                 </div>
                             </div>
                             <div class="card-footer text-center">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-light">
                                     <i class="fas fa-filter"></i> Filtrar
                                 </button>
                             </div>

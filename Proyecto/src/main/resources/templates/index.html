@@ -1,113 +1,148 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{layout/plantilla :: head}">
-    <title>TuJuego.Com</title>
-    <!-- Agregamos estilos CSS personalizados aquí -->
-    <style>
-        /* Estilos generales */
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f8f9fa;
-            color: #333;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            max-width: 960px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        h2 {
-            color: #007bff;
-        }
-        p {
-            line-height: 1.6;
-        }
-        /* Estilos para los cuadros de productos */
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            justify-items: center;
-        }
-        .product-item {
-            border: 1px solid #ccc;
-            padding: 20px;
-            text-align: center;
-            background-color: #fff;
-            border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease-in-out;
-        }
-        .product-item:hover {
-            transform: translateY(-5px);
-        }
-        .product-item img {
-            width: 100%; /* Establecer el ancho al 100% para que todas las imágenes tengan el mismo ancho */
-            max-width: 200px; /* Establecer un ancho máximo para evitar que las imágenes se estiren demasiado */
-            height: auto;
-            margin-bottom: 10px;
-            border-radius: 5px;
-        }
-        /* Estilos para el video incrustado */
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio */
-            height: 0;
-            overflow: hidden;
-            margin-top: 20px;
-        }
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-        /* Estilos para el pie de página */
-        footer {
-            background-color: #343a40;
-            color: #fff;
-            padding: 20px 0;
-            text-align: center;
-            margin-top: 50px;
-        }
-    </style>
-</head>
-<body>
-    <header th:replace="~{layout/plantilla :: header}"/>
-    
-    <div class="container mt-4">
-        <h2 class="mb-4">¡Bienvenido a TuJuego.Com!</h2>
-        <br>
-        </br>
-        <p>Somos una plataforma líder en la venta de videojuegos en línea. Con más de 10 años de experiencia en el mercado, nos hemos consolidado como una opción confiable para los amantes de los videojuegos.</p>
-        <p>En TuJuego.Com, nuestra prioridad es ofrecer la mejor experiencia de compra a nuestros clientes. Garantizamos seguridad en todas las transacciones y una amplia selección de títulos para todas las plataformas.</p>
-        <br>
-        </br>
+    <head th:replace="~{layout/plantilla :: head}">
+        <title>TuJuego.Com</title>
+        <!-- Agregamos estilos CSS personalizados aquí -->
+        <style>
+            /* Estilos generales */
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f8f9fa;
+                color: #333;
+                margin: 0;
+                padding: 0;
+                min-height: 100vh; /* Asegura que el cuerpo ocupe al menos la altura completa de la ventana */
+                display: flex;
+                flex-direction: column; /* Establece el flujo de la página en una columna */
+            }
+            .container {
+                flex: 1; /* Permite que el contenedor principal crezca para llenar el espacio disponible */
+                max-width: 960px;
+                margin: 0 auto;
+                padding: 20px;
+            }
+            h2 {
+                color: #007bff;
+            }
+            p {
+                line-height: 1.6;
+            }
+            /* Estilos para el video incrustado */
+            .video-container {
+                position: relative;
+                padding-bottom: 56.25%; /* 16:9 aspect ratio */
+                height: 0;
+                overflow: hidden;
+                margin-top: 20px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
 
-        <br>
-        </br> 
+            .video-container iframe {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+            /* Estilos para el footer */
+            footer {
+                background-color: #343a40;
+                color: #fff;
+                padding: 20px 0;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <header th:replace="~{layout/plantilla :: header}"/>
+        <br></br> 
         <section th:replace="~{carrito/fragmentos :: filtros}"/>
+        <br></br>
         <section th:replace="~{carrito/fragmentos :: listadoJuegos}"/>
+        <br></br>
+        <article  style="background-color: rgba(0, 0, 0, 0.5);">
+            <div class="container mt-4" style="text-align: justify; color: white;">
+                <h2 class="mb-4">¡Bienvenido a TuJuego.Com!</h2>
+                <br></br>
+                <p>Somos una plataforma líder en la venta de videojuegos en línea. Con más de 10 años de experiencia en el mercado, nos hemos consolidado como una opción confiable para los amantes de los videojuegos.</p>
+                <p>En <strong>TuJuego.Com</strong>, nuestra prioridad es ofrecer la mejor experiencia de compra a nuestros clientes. Garantizamos seguridad en todas las transacciones y una amplia selección de títulos para todas las plataformas.</p>
+                <p>Nuestro catálogo incluye una variedad de géneros, desde acción y aventura hasta juegos de rol y estrategia. Trabajamos en estrecha colaboración con los principales desarrolladores y distribuidores para ofrecer los últimos lanzamientos y los clásicos favoritos.</p>
+                <p>Además de videojuegos, también ofrecemos una selección de accesorios y dispositivos para mejorar tu experiencia de juego. Desde mandos y auriculares hasta tarjetas de regalo y membresías de suscripción, tenemos todo lo que necesitas para sacar el máximo provecho de tu consola o PC.</p>
+                <p>En <strong>TuJuego.Com</strong>, nos esforzamos por brindar un servicio excepcional a nuestros clientes. Nuestro equipo de atención al cliente está disponible para ayudarte en cualquier momento y resolver cualquier pregunta o problema que puedas tener.</p>
+                <p>Explora nuestro sitio hoy y descubre una nueva forma de experimentar el mundo de los videojuegos. ¡Bienvenido a la comunidad de <strong>TuJuego.Com</strong>!</p>
+                <p>Con una interfaz intuitiva y fácil de usar, navegar por nuestro sitio es una experiencia agradable y sin complicaciones. Organizamos nuestros productos en categorías claras y brindamos herramientas de búsqueda avanzadas para que puedas encontrar exactamente lo que estás buscando.</p>
+                <p>En <strong>TuJuego.Com</strong>, creemos en la transparencia y la honestidad. Todos nuestros productos tienen descripciones detalladas y opiniones de usuarios reales para que puedas tomar decisiones informadas antes de realizar una compra.</p>
+                <p>¿Tienes preguntas sobre un producto o necesitas ayuda con un pedido? Nuestro equipo de soporte está disponible las 24 horas del día, los 7 días de la semana, para brindarte asistencia personalizada y resolver cualquier problema que puedas encontrar.</p>
+                <p>¡Únete a la comunidad de <strong>TuJuego.Com</strong> hoy y descubre una nueva forma de disfrutar de tus videojuegos favoritos!</p>
+                <p>Con una amplia gama de servicios, desde envío rápido hasta garantías de calidad, nos esforzamos por brindarte la mejor experiencia de compra en línea. En <strong>TuJuego.Com</strong>, tu satisfacción es nuestra máxima prioridad.</p>
+                <p>No solo somos una tienda de videojuegos; también somos una comunidad apasionada de jugadores que comparten su amor por los juegos. Únete a nuestras redes sociales y participa en eventos, concursos y debates sobre tus juegos favoritos.</p>
+                <p>Estamos comprometidos con la excelencia en todo lo que hacemos. Desde la selección de productos hasta la atención al cliente, trabajamos incansablemente para superar tus expectativas y brindarte una experiencia de compra excepcional.</p>
+                <p>¡Gracias por elegir <strong>TuJuego.Com</strong>! Esperamos que disfrutes de tu experiencia de compra y que encuentres los juegos y accesorios que estás buscando. ¡Diviértete jugando!</p>
+                <br></br>
+            </div>
+        </article>
         <!-- Video incrustado -->
-        <div class="video-container mt-4">
-            <h3 class="mt-5">Las mas grandes noticias del mundo de los videojuegos</h3>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/aBLHyN_4FzM?si=E6ARnhWHeguqOcwX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/6At0P_w7kZc?si=l7yW2BVvMFQMqeLl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/o7ZKqMnefsg?si=n0NZQ3ddaZdILyKZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/B2TBfClCXZw?si=bvN-tAQdlwo-4yPS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <section>
+            <div class="container-fluid video-container">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <section>
+                            <div class="ratio ratio-16x9">
+                                <iframe width="560" height="315" src="https://www.youtube.com/embed/aBLHyN_4FzM?si=E6ARnhWHeguqOcwX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </div>
+                        </section>
+                    </div>
+                    <div class="col-lg-4">
+                        <section>
+                            <div class="ratio ratio-16x9">
+                                <iframe width="560" height="315" src="https://www.youtube.com/embed/6At0P_w7kZc?si=l7yW2BVvMFQMqeLl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </div>
+                        </section>
+                    </div>
+                    <div class="col-lg-4">
+                        <section>
+                            <div class="ratio ratio-16x9">
+                                <iframe width="560" height="315" src="https://www.youtube.com/embed/o7ZKqMnefsg?si=n0NZQ3ddaZdILyKZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <br></br>
+        <section>
+            <div class="container-fluid video-container">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <section>
+                            <div class="ratio ratio-16x9">
+                                <iframe width="560" height="315" src="https://www.youtube.com/embed/example1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </div>
+                        </section>
+                    </div>
+                    <div class="col-lg-4">
+                        <section>
+                            <div class="ratio ratio-16x9">
+                                <iframe width="560" height="315" src="https://www.youtube.com/embed/example2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </div>
+                        </section>
+                    </div>
+                    <div class="col-lg-4">
+                        <section>
+                            <div class="ratio ratio-16x9">
+                                <iframe width="560" height="315" src="https://www.youtube.com/embed/example3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </section>
         </div>
-    </div>
-    
-    <!-- Sección de Contáctenos en el pie de página -->
-    <footer th:replace="~{layout/plantilla :: footer}">
-        <div class="container text-center mt-5">
-            <h3>Contactatenos</h3>
-            <p>Si tienes alguna pregunta o comentario, no dudes en ponerte en contacto con nuestro equipo de atención al cliente.</p>
-            <p>Teléfono: +506</p>
-            <p>Correo electrónico: info@tujuego.com</p>
-        </div>
-    </footer>             
-</body>
+
+        <!-- Sección de Contáctenos en el pie de página -->
+        <footer th:replace="~{layout/plantilla :: footer}">
+        </footer>             
+    </body>
 </html>

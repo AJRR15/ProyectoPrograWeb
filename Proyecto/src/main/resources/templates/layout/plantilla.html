@@ -5,6 +5,7 @@
         <meta charset="UTF-8"/>
         <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
         <link th:href="@{/webjars/font-awesome/css/all.css}" rel="stylesheet"/>
+        <link href="/css/main.css" rel="stylesheet" type="text/css"/>
         <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
         <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
         <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
@@ -20,11 +21,15 @@
                 color: inherit; /* Hereda el color del texto del contenedor */
                 text-decoration: none; /* Elimina el subrayado */
             }
+            .bg-dark {
+                --bs-bg-opacity: 1;
+                background-color: rgba(0, 0, 0, 0.24) !important; /* Cambié el valor de 24% a 0.24 */
+            }
         </style>
     </head>    
-    <body style="background-color: #000000;"> <!-- Aquí se establece el fondo negro -->
-        <header th:fragment="header" class="header">
-            <section id="main-header" class="py-2 bg-danger text-white">
+    <body> <!-- Aquí se establece el fondo negro -->
+        <header th:fragment="header" class="header" >
+            <nav class="navbar navbar-expand-sm navbar-dark  p-0" style="background-color: rgba(0,0,0,0.5); color: white;">
                 <div class="container d-flex justify-content-between align-items-center">
                     <!-- Logo -->
                     <div class="col-md-6 d-flex align-items-center">
@@ -55,14 +60,14 @@
                     </div>
                     <!-- Login -->
                     <div class="col-md-3 d-flex justify-content-end"> <!-- Mantenemos el bloque del login en el lado derecho -->
-                        <li class="nav-item my-auto me-3  align-items-left"> <!-- Agregamos clase "me-3" para agregar espacio entre el nombre y el ícono de logout -->
+                        <li class="nav-item my-auto me-3 align-items-left"> <!-- Agregamos clase "me-3" para agregar espacio entre el nombre y el ícono de logout -->
                             <span sec:authentication="name" style="color: white;"></span> <!-- Movemos el nombre del usuario aquí -->
                         </li>
                         <ul class="navbar-nav" sec:authorize="isAuthenticated()">                           
                             <li class="nav-item my-auto">
                                 <form method="post" th:action="@{/logout}">
-                                    <button class="btn btn-danger">
-                                        <i class="fas fa-sign-out-alt"></i>
+                                    <button class="btn btn-white">
+                                        <i class="fas fa-sign-out-alt text-white"></i> <!-- Agrega la clase "text-white" aquí -->
                                     </button>
                                 </form>
                             </li>
@@ -76,13 +81,10 @@
                         </ul>
                     </div>
                 </div>
-            </section>
+                </section>
         </header>
-
-        <!-- End Header -->
-
-        <!-- Footer -->
-        <footer th:fragment="footer" class="bg-dark text-white mt-5 p-2">
+        <footer th:fragment="footer" class="bg-dark text-white mt-5 p-2" style="background-color: rgba(0, 0, 0, 0.5); color: white !important;">
+            <!-- Tu contenido de footer aquí -->
             <div class="container">
                 <div class="col">
                     <p class="lead text-center">
@@ -91,6 +93,5 @@
                 </div>
             </div>
         </footer>
-        <!-- End Footer -->
     </body>
 </html>

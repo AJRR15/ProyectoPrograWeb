@@ -1,74 +1,64 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{layout/plantilla :: head}">
-    <title>TuJuego.Com</title>
-    <!-- Agregamos estilos CSS personalizados aquí -->
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f8f9fa;
-            color: #333;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: #007bff;
-            color: #fff;
-            padding: 20px 0;
-            text-align: center;
-        }
-        .container {
-            max-width: 960px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        h1, h2 {
-            color: #007bff;
-        }
-        p {
-            line-height: 1.6;
-        }
-        footer {
-            background-color: #343a40;
-            color: #fff;
-            padding: 20px 0;
-            text-align: center;
-            margin-top: 50px;
-        }
-    </style>
-</head>
-<body>
-    <header th:replace="~{layout/plantilla :: header}"/>
+    <head th:replace="~{layout/plantilla :: head}">
+        <title>TuJuego.Com</title>
+    </head>
+    <body>
+        <header th:replace="~{layout/plantilla :: header}"/>
 
-    <div class="container">
+        <article style="background-color: rgba(0, 0, 0, 0.5);">
+            <div class="container mt-4" style="text-align: justify; color: white;">
+                <br></br>
+                <h2>Sobre Nosotros</h2>
+                <p>Somos TuJuego.Com, una tienda en línea dedicada a la venta de videojuegos. Fundada hace más de una década, nos hemos convertido en un referente en la industria del entretenimiento digital.</p>
+                <br></br>
+                <h3>Misión</h3>
+                <p>Nuestra misión es proporcionar a nuestros clientes una experiencia de compra excepcional al ofrecer una amplia variedad de videojuegos de alta calidad, mantenernos al día con las últimas tendencias y tecnologías, y garantizar la seguridad y privacidad de sus datos personales en todo momento.</p>
+                <br></br>
+                <h3>Visión</h3>
+                <p>Nuestra visión en TuJuego.Com es convertirnos en la principal plataforma de venta de videojuegos en línea, reconocida por ofrecer la mejor experiencia de compra y la más amplia selección de títulos para jugadores de todas las edades y preferencias.</p>
+                <br></br>
+                <h3>FODA</h3>
+                <ul>
+                    <li><strong>Fortalezas:</strong> Amplia gama de títulos, experiencia en la industria, equipo experto.</li>
+                    <li><strong>Oportunidades:</strong> Crecimiento del mercado de videojuegos, expansión a nuevos mercados.</li>
+                    <li><strong>Debilidades:</strong> Competencia en línea, dependencia de proveedores externos.</li>
+                    <li><strong>Amenazas:</strong> Cambios en las preferencias de los consumidores, piratería informática.</li>
+                </ul>
+                <br></br>
+                <p>Gracias por confiar en nosotros como tu destino número uno para la compra de videojuegos en línea. ¡Esperamos verte pronto en TuJuego.Com!</p>
+                <p>Para cualquier consulta o comentario, no dudes en ponerte en contacto con nuestro equipo de atención al cliente. Estamos aquí para ayudarte en todo lo que necesites.</p>
+                <p>¡Gracias por ser parte de la familia TuJuego.Com!</p>
+            </div>
+        </article>
         <br>
         </br>
-        <h2>Sobre Nosotros</h2>
         <br>
         </br>
-        <p>Somos TuJuego.Com, una tienda en línea dedicada a la venta de videojuegos. Fundada hace más de una década, nos hemos convertido en un referente en la industria del entretenimiento digital.</p>
-        <p>Nuestra misión es proporcionar a nuestros clientes la mejor experiencia de compra posible, ofreciendo una amplia gama de títulos para todas las plataformas, desde los clásicos hasta los últimos lanzamientos.</p>
-        <p>En TuJuego.Com, nos esforzamos por mantenernos actualizados con las últimas tendencias y tecnologías del mundo de los videojuegos. Nuestro equipo de expertos está siempre disponible para ayudarte a encontrar el juego perfecto para ti.</p>
-        <p>Además de ofrecer una selección diversa de juegos, también nos preocupamos por la seguridad y la privacidad de nuestros clientes. Todas las transacciones se realizan de forma segura y tus datos personales están protegidos en todo momento.</p>
-        <p>Gracias por confiar en nosotros como tu destino número uno para la compra de videojuegos en línea. ¡Esperamos verte pronto en TuJuego.Com!</p>
-        <p>Para cualquier consulta o comentario, no dudes en ponerte en contacto con nuestro equipo de atención al cliente. Estamos aquí para ayudarte en todo lo que necesites.</p>
-        <p>¡Gracias por ser parte de la familia TuJuego.Com!</p>
-    </div>
-    <br>
-    </br>
-    <br>
-    </br>
-    <div style="text-align: center;">
-        <h2>Nuestro Fundador</h2>
-        <br>
-        </br>
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdKELtlH3N_cF5bj3Hmy48B99_CqTDmwE_rQ&usqp=CAU" alt="Imagen del Fundador" style="width: 200px; height: 200px;">
-            <br>
-        </br>
+        <div class="row row-cols-3 justify-content-center">
+            <div class="col">
+                <div class="card" style="background-color: rgba(0, 0, 0, 0.5);">
+                    <div class="card-body text-center" style="color: white;">
+                        <h5 class="card-title">Redes Sociales</h5>
+                        <br>
+                            <div class="row">
+                                <div class="col">
+                                    <a href="https://www.facebook.com/TuJuegoCom" target="_blank" class="btn btn-light btn-lg"><i class="fab fa-facebook-f fa-2x"></i></a>
+                                </div>
+                                <div class="col">
+                                    <a href="https://www.instagram.com/TuJuegoCom" target="_blank" class="btn btn-light btn-lg"><i class="fab fa-instagram fa-2x"></i></a>
+                                </div>
+                                <div class="col">
+                                    <a href="https://wa.me/5555555555" target="_blank" class="btn btn-light btn-lg"><i class="fab fa-whatsapp fa-2x"></i></a>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    
 
-    <footer th:replace="~{layout/plantilla :: footer}">
-    </footer>
-</body>
+
+        <footer th:replace="~{layout/plantilla :: footer}">
+        </footer>
+    </body>
 </html>
