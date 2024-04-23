@@ -75,29 +75,30 @@
         </style>
     </head>   
     <body>        
-        <header th:replace="~{layout/plantilla :: header}"/>       
+        <header th:replace="~{layout/plantilla :: header}"/>
+        <br></br>\
         <div class="container my-5">           
             <div class="row align-items-center">     
                 <div class="col-md-3"></div>               
                 <div class="col-md-6">                   
-                    <div class="card">                       
-                        <div class="card-header">
-                            <h2>[[#{login.login}]]</h2>
+                    <div class="card" style="background-color: rgba(0, 0, 0, 0.5);">                       
+                        <div class="card-header" style="text-align: center; color: white;">
+                            <h2>Inicio de Sesión</h2>
                         </div>                        
-                        <div class="card-body">                           
+                        <div class="card-body" style="background-color: rgba(0, 0, 0, 0);">                           
                             <form method="POST" th:action="@{/login}">                                
-                                <div class="form-group">                                   
+                                <div class="form-group" style="text-align: justify; color: white;">                                   
                                     <label for="username">[[#{login.username}]]:</label>                       
                                     <input class="form-control" type="text" name="username" id="username"/>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group" style="text-align: justify; color: white;">
                                     <label for="password">[[#{login.password}]]</label>                                 
                                     <input class="form-control" type="password" name="password" id="password"/>
                                 </div>
                                 <br></br>
-                                <div class="form-group">
-                                    <a th:href="@{/registro/nuevo}" class="btn btn-rojo"><i class="fas fa-user-plus"></i> [[#{accion.registrar}]]</a>
-                                    <button class="btn btn-primary" type="submit">[[#{login.login}]]</button>
+                                <div class="form-group" style="text-align: justify; color: white;">
+                                    <a th:href="@{/registro/nuevo}" style="background-color: rgba(255, 0, 255, 0.5); color: white;" class="btn btn-white"><i class="fas fa-user-plus"></i> [[#{accion.registrar}]]</a>
+                                    <button class="btn btn-trasparent" style="background-color: rgba(0, 255, 0, 0.5); color: white;" type="submit">[[#{login.login}]]</button>
                                 </div>                         
                             </form>                                               
                         </div>                   
