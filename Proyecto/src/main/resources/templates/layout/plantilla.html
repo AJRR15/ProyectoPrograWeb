@@ -1,73 +1,96 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<head th:fragment="head">
-    <title>TuJuego.Com</title>
-    <meta charset="UTF-8"/>
-    <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
-    <link th:href="@{/webjars/font-awesome/css/all.css}" rel="stylesheet"/>
-    <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
-    <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
-    <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
-    <script th:src="@{/js/rutinas.js}"></script>
-</head>
-<body style="background-color: #000000;"> <!-- Aquí se establece el fondo negro -->
-    <header th:fragment="header" class="header">
-        <section id="main-header" class="py-2 bg-danger text-white">
-            <div class="container d-flex justify-content-between align-items-center">
-                <div class="col-md-6 d-flex align-items-center">
-                    <h1 class="me-3">TuJuego.Com</h1>
-                    <a class="nav-link active fs-5 me-2" aria-current="page" th:href="@{/}">Home</a>
-                    <a class="nav-link fs-5 dropdown-toggle me-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Catalogo
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" th:href="@{/juego/juegos}">Juegos</a></li>
-                        <li><a class="dropdown-item" th:href="@{/categoria/categorias}"sec:authorize="hasRole('ROLE_ADMIN')">Categoria</a></li>
-                    </ul>   
-                </div>
-                <div class="d-flex align-items-center">
-                    <a class="nav-link fs-5 me-2" th:href="@{/usuario/listado}" sec:authorize="hasRole('ROLE_ADMIN')">Usuarios</a>
-                    <a class="nav-link fs-5 me-2" th:href="@{/contacto}">Contactenos</a>
-                    <a class="nav-link fs-5 me-2" th:href="@{/nosotros}">Nosotros</a>
-                    <a class="nav-link fs-5 me-2" th:href="@{/carrito/listado}">Mi Carrito</a>
-                </div>
-                <div class="col-md-3">
-                            <ul class="navbar-nav" sec:authorize="!isAuthenticated()">
-                                <li class="nav-item">
-                                    <a class="nav-link" th:href="@{/login}">
-                                        <i class="fas fa-sign-in-alt"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                            <ul class="navbar-nav" sec:authorize="isAuthenticated()">
-                                <li class="nav-item text-white my-auto">
-                                    <span sec:authentication="name" style="color: black;"></span>
-                                </li>
-                                <li class="nav-item my-auto">
-                                    <form method="post" th:action="@{/logout}">
-                                        <button class="btn btn-dark">
-                                            <i class="fas fa-sign-out-alt"></i>
-                                        </button>
-                                    </form>
-                                </li>
+    <head th:fragment="head">
+        <title>TuJuego.Com</title>
+        <meta charset="UTF-8"/>
+        <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+        <link th:href="@{/webjars/font-awesome/css/all.css}" rel="stylesheet"/>
+        <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+        <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+        <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+        <script th:src="@{/js/rutinas.js}"></script>
+        <style>
+            /* Estilos para el enlace */
+            a {
+                color: inherit; /* Hereda el color del texto del contenedor */
+                text-decoration: none; /* Elimina el subrayado */
+            }
+            /* Estilos para el título */
+            .me-3 {
+                color: inherit; /* Hereda el color del texto del contenedor */
+                text-decoration: none; /* Elimina el subrayado */
+            }
+        </style>
+    </head>    
+    <body style="background-color: #000000;"> <!-- Aquí se establece el fondo negro -->
+        <header th:fragment="header" class="header">
+            <section id="main-header" class="py-2 bg-danger text-white">
+                <div class="container d-flex justify-content-between align-items-center">
+                    <!-- Logo -->
+                    <div class="col-md-6 d-flex align-items-center">
+                        <a th:href="@{/}">
+                            <h1 class="me-3">TuJuego.Com</h1>
+                        </a>
+                    </div>
+                    <!-- Menú de navegación -->
+                    <div class="d-flex">
+                        <div class="dropdown me-3">
+                            <a class="nav-link fs-5 dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Gestiones
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" th:href="@{/juego/juegos}">Juegos</a></li>
+                                <li><a class="dropdown-item" th:href="@{/categoria/categorias}" sec:authorize="hasRole('ROLE_ADMIN')">Categoría</a></li>
+                                <li><a class="dropdown-item" th:href="@{/usuario/listado}" sec:authorize="hasRole('ROLE_ADMIN')">Usuarios</a></li>
                             </ul>
                         </div>
-            </div>
-        </section>1        
-    </header>
+                        <a class="nav-link fs-5 me-3" th:href="@{/contacto}">Contactenos</a>
+                        <a class="nav-link fs-5 me-3" th:href="@{/nosotros}">Nosotros</a>
+                        <!-- Carrito de compras -->
+                        <div>
+                            <a class="nav-link fs-5 me-3" th:href="@{/carrito/listado}">
+                                <i class="fas fa-shopping-cart"></i> <!-- Ícono de carrito -->
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Login -->
+                    <div class="col-md-3 d-flex justify-content-end"> <!-- Mantenemos el bloque del login en el lado derecho -->
+                        <li class="nav-item my-auto me-3  align-items-left"> <!-- Agregamos clase "me-3" para agregar espacio entre el nombre y el ícono de logout -->
+                            <span sec:authentication="name" style="color: white;"></span> <!-- Movemos el nombre del usuario aquí -->
+                        </li>
+                        <ul class="navbar-nav" sec:authorize="isAuthenticated()">                           
+                            <li class="nav-item my-auto">
+                                <form method="post" th:action="@{/logout}">
+                                    <button class="btn btn-danger">
+                                        <i class="fas fa-sign-out-alt"></i>
+                                    </button>
+                                </form>
+                            </li>
+                        </ul>
+                        <ul class="navbar-nav" sec:authorize="!isAuthenticated()">
+                            <li class="nav-item">
+                                <a class="nav-link" th:href="@{/login}">
+                                    <i class="fas fa-sign-in-alt"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </header>
 
-    <!-- End Header -->
+        <!-- End Header -->
 
-    <!-- Footer -->
-    <footer th:fragment="footer" class="bg-dark text-white mt-5 p-2">
-        <div class="container">
-            <div class="col">
-                <p class="lead text-center">
-                    TuJuegoCom@gmail.com
-                </p>
+        <!-- Footer -->
+        <footer th:fragment="footer" class="bg-dark text-white mt-5 p-2">
+            <div class="container">
+                <div class="col">
+                    <p class="lead text-center">
+                        TuJuegoCom@gmail.com
+                    </p>
+                </div>
             </div>
-        </div>
-    </footer>
-    <!-- End Footer -->
-</body>
+        </footer>
+        <!-- End Footer -->
+    </body>
 </html>
