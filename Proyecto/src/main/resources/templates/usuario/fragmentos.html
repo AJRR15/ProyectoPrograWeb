@@ -11,12 +11,8 @@
             <div class="container" sec:authorize="hasRole('ROLE_ADMIN')">
                 <div class="row">
                     <div class="col-md-3">   
-                        <button 
-                            type="button" 
-                            class="btn btn-primary btn-block" 
-                            data-bs-toggle="modal" 
-                            data-bs-target="#agregarUsuario">
-                            <i class="fas fa-plus"></i>
+                        <button type="button" style="background-color: rgba(0, 255, 255, 0.7); color: white; "class="btn btn-trasparent" data-bs-toggle="modal" data-bs-target="#agregarUsuario">
+                            <i class="fas fa-plus"></i>Agregar
                         </button>
                     </div>
                 </div>
@@ -31,8 +27,8 @@
                  aria-labelledby="exampleModalLabel" 
                  aria-hidden="true">
                 <div class="modal-dialog modal-md">
-                    <div class="modal-content">
-                        <div class="modal-header bg-info text-white">
+                    <div class="modal-content" style="background-color: rgba(81, 30, 164, 0.7); color: white;">
+                        <div class="modal-header bg-black text-white">
                             <h5 class="modal-title">Agregar Usuarios</h5>
                             <button type="button" 
                                     class="btn-close" 
@@ -69,7 +65,7 @@
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button class="btn btn-primary" type="submit">Guardar</button>
+                                <button class="btn btn-trasparent" style="background-color: rgba(0, 0, 0, 255); color: white; "type="submit">Guardar</button>
                             </div>
                         </form>
                     </div>
@@ -82,7 +78,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-9">
-                        <div class="card">
+                        <div class="card" style="background-color: rgba(0, 0, 0, 0.5); color: white; ">
                             <div class="card-header">
                                 <h4>Usuarios</h4></div>
                             <div th:if="${usuarios != null and !usuarios.empty}">
@@ -97,16 +93,16 @@
                                     </thead>
                                     <tbody>
                                         <tr th:each="usuario, contador : ${usuarios}">
-                                            <td>[[${contador.count}]]</td>
-                                            <td>[[${usuario.username}]]</td>
-                                            <td>[[${usuario.nombre}]]</td>
-                                            <td>[[${usuario.apellidos}]]</td>
+                                            <td style="color: white;">[[${contador.count}]]</td>
+                                            <td style="color: white;">[[${usuario.username}]]</td>
+                                            <td style="color: white;">[[${usuario.nombre}]]</td>
+                                            <td style="color: white;"   > [[${usuario.apellidos}]]</td>
                                             <td sec:authorize="hasRole('ROLE_ADMIN')">
                                                 <a th:href="@{/usuario/eliminar/}+${usuario.idUsuario}"
-                                                   class="btn btn-danger">
+                                                   style="background-color: rgba(255, 0, 0, 0.5); color: white; "class="btn btn-trasparent">
                                                     <i class="fas fa-trash"></i>Eliminar</a>
                                                 <a th:href="@{/usuario/modificar/}+${usuario.idUsuario}"
-                                                   class="btn btn-success">
+                                                   style="background-color: rgba(0, 255, 0, 0.5); color: white; "class="btn btn-trasparent">
                                                     <i class="fas fa-pencil"></i>Actualizar</a></td></tr>
                                     </tbody>
                                 </table>
@@ -135,7 +131,7 @@
                             <div class="container">
                                 <div class="row">
                                     <div class="col">
-                                        <div class="card">
+                                        <div class="card" style="background-color: rgba(0, 0, 0, 0.5); color: white; ">
                                             <div class="card-header">
                                                 <h4>Modificar</h4>
                                             </div>
@@ -188,18 +184,18 @@
             <div class="container py-4 mb-4">
                 <div class="row">
                     <div class="col-md-4 d-grid">
-                        <a th:href="@{/usuario/listado}" class="btn btn-primary">
+                        <a th:href="@{/usuario/listado}" style="background-color: rgba(0, 0, 255, 0.5); color: white; "class="btn btn-trasparent">
                             <i class="fas fa-arrow-left"></i> 
                         </a>
                     </div>
                     <div class="col-md-4 d-grid" sec:authorize="hasRole('ROLE_ADMIN')">                                
                         <a th:href="@{/usuario/eliminar/}+${usuario.idUsuario}"
-                           class="btn btn-danger">
+                           style="background-color: rgba(255, 0, 0, 0.5); color: white; "class="btn btn-trasparent">
                             <i class="fas fa-trash"></i> 
                         </a>
                     </div>
                     <div class="col-md-4 d-grid" sec:authorize="hasRole('ROLE_ADMIN')">
-                        <button type="submit" class="btn btn-success">
+                        <button type="submit" style="background-color: rgba(0, 255, 0, 0.5); color: white; "class="btn btn-trasparent">
                             <i class="fas fa-check"></i> 
                         </button>
                     </div>
