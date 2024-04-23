@@ -98,7 +98,7 @@
                     <div class="col-md-12">
                         <div class="card" style="background-color: rgba(0, 0, 0, 0.5); color: white;">
                             <div class="card-header">
-                                <h4>Listado de Mensajes</h4>
+                                <h4>Comentarios</h4>
                             </div>
                             <div class="card-body">
                                 <div th:if="${contactos != null and not #lists.isEmpty(contactos)}" class="table-responsive">
@@ -108,7 +108,7 @@
                                                 <th>#</th>
                                                 <th>Nombre</th>
                                                 <th>Apellido</th>
-                                                <th>Numero de telefono</th>
+                                                <th sec:authorize="hasRole('ROLE_ADMIN')">Numero de telefono </th>
                                                 <th>Comentario</th>
                                                 <th></th>
                                             </tr>
@@ -118,7 +118,7 @@
                                                 <td style="color: white; "th:text="${contador.count}"></td>
                                                 <td style="color: white; "th:text="${contacto.nombre}"></td>
                                                 <td style="color: white; "th:text="${contacto.apellido}"></td>
-                                                <td style="color: white; "th:text="${contacto.numero}"></td>
+                                                <td sec:authorize="hasRole('ROLE_ADMIN')" style="color: white; "th:text="${contacto.numero}"></td>
                                                 <td style="color: white; "th:text="${contacto.mensaje}"></td>
                                                 <td>
                                                     <div>
