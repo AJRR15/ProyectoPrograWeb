@@ -8,6 +8,6 @@ public class MensajeController {
 
     @GetMapping("/carrito/mensaje")
     public String mostrarPaginaAgradecimiento() {
-        return "carrito/listado"; // Nombre de la vista de agradecimiento
+        return "carrito/mensaje"; // Nombre de la vista de agradecimiento
     }
 }
