@@ -23,27 +23,27 @@
                     <form method="POST" th:action="@{/registro/crearUsuario}" th:object="${usuario}" class="was-validated">
                         <div class="card">
                             <div class="card-header">
-                                <h4>Nuevo</h4>
+                                <h4>[[#{accion.nuevo}]]</h4> 
                             </div>
                             <div class="card-body">
                                 <div class="mb-3">
-                                    <label for="username">Usuario</label>
+                                    <label for="username">[[#{usuario.username}]]</label>
                                     <input type="text" class="form-control" name="username" th:field="*{username}" required="true"/></div>
                                 <div class="mb-3">
-                                    <label for="nombre">Nombre</label>
+                                    <label for="nombre">[[#{nombre.nombre}]]</label>
                                     <input type="text" class="form-control" name="nombre" th:field="*{nombre}" required="true"/></div>
                                 <div class="mb-3">
-                                    <label for="apellidos">Apellidos</label>
+                                    <label for="apellidos">[[#{apellido.apellido}]]</label>
                                     <input type="text" class="form-control" name="apellidos" th:field="*{apellidos}"
                                            required="true"/></div>
                                 <div class="mb-3">
-                                    <label for="email">Correo</label>
+                                    <label for="email">[[#{usuario.correo}]]</label>
                                     <input type="email" class="form-control" 
                                            name="correo" th:field="*{correo}"
                                            required="true"/></div></div>
                             <div class="card-footer text-end">                                                
                                 <button type="submit" class="btn btn-success">
-                                    <i class="fas fa-envelope"></i>Validar
+                                    <i class="fas fa-envelope"></i>[[#{validar.validar}]]
                                 </button></div>
                         </div>
                     </form>
@@ -59,32 +59,32 @@
                         <input type="hidden" name="idUsuario" th:field="*{idUsuario}"/>
                         <div class="card">
                             <div class="card-header align-items-center">
-                                <h4>Activar</h4>
+                                <h4>[[#{usuario.activacion}]]</h4>
                             </div>
                             <div class="card-body">
                                 <div class="mb-3">
-                                    <label for="username">Usuario</label>
+                                    <label for="username">[[#{usuario.username}]]</label>
                                     <input type="text" class="form-control" name="username" th:field="*{username}" required="true"/></div>
                                 <div class="mb-3">
-                                    <label for="nombre">Nombre</label>
+                                    <label for="nombre">[[#{nombre.nombre}]]</label>
                                     <input type="text" class="form-control" name="nombre" th:field="*{nombre}" required="true"/></div>
                                 <div class="mb-3">
-                                    <label for="apellidos">Apellidos</label>
+                                    <label for="apellidos">[[#{apellido.apellido}]]</label>
                                     <input type="text" class="form-control" name="apellidos" th:field="*{apellidos}" required="true"/></div>
                                 <div class="mb-3">
-                                    <label for="email">Correo</label>
+                                    <label for="email">[[#{usuario.correo}]]</label>
                                     <input type="email" class="form-control" name="correo" th:field="*{correo}" required="true"/></div>
                                 <div class="mb-3">
-                                    <label for="telefono">Telefono</label>
+                                    <label for="telefono">[[#{telefono.telefono}]]</label>
                                     <input type="tel" class="form-control" name="telefono" th:field="*{telefono}"/></div>
                                 <div class="mb-3">
-                                    <label for="password">Contraseña</label>
+                                    <label for="password">[[#{contrasena.contrasena}]]</label>
                                     <input type="password" class="form-control" name="password" th:field="*{password}"/>
                                 </div>                                              
                             </div>
                             <div class="card-footer align-items-center">
                                 <button type="submit" class="btn btn-success">
-                                    <i class="fas fa-check"></i>Enviar
+                                    <i class="fas fa-check"></i>[[#{enviar.enviar}]]
                                 </button>
                             </div>
                         </div>
@@ -117,7 +117,7 @@
                             </div>
                             <div class="card-body">
                                 <div class="mb-3">
-                                    <label for="username">Usuario</label>
+                                    <label for="username">[[#{usuario.username}]]</label>
                                     <input type="text" class="form-control" name="username" th:field="*{username}"/></div>                                                
                                 <div class="mb-3">
                                     <label for="email">Correo</label>
