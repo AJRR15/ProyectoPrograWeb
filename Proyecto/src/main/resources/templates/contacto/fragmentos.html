@@ -24,30 +24,30 @@
                 <div class="modal-dialog modal-md">
                     <div class="modal-content">
                         <div class="modal-header bg-info text-white">
-                            <h5 class="modal-title">Agregar Juego</h5>
+                            <h5 class="modal-title">[[#{contacto.agregarJ}]]</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <form th:action="@{/contacto/guardar}" method="POST" class="was-validated" enctype="multipart/form-data">
                             <div class="modal-body">
                                 <div class="mb-3">
-                                    <label for="nombre">Nombre</label>
+                                    <label for="nombre">[[#{nombre.nombre}]]</label>
                                     <input type="text" class="form-control" name="nombre" required="true" />
                                 </div>
                                 <div class="mb-3">
-                                    <label for="apellido">Apellido</label>
+                                    <label for="apellido">[[#{apellido.apellido}]]</label>
                                     <input type="text" class="form-control" name="apellido" required="true" />
                                 </div>
                                 <div class="mb-3">
-                                    <label for="numero">Número de Teléfono</label>
+                                    <label for="numero">[#{telefono.telefono}]]</label>
                                     <input type="number" class="form-control" name="numero" required="true" />
                                 </div>
                                 <div class="mb-3">
-                                    <label for="mensaje">Mensaje</label>
+                                    <label for="mensaje">[[#{mensaje.mensaje}]]</label>
                                     <input type="text" class="form-control" name="mensaje" required="true" />
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="submit" class="btn btn-primary">Guardar</button>
+                                <button type="submit" class="btn btn-primary">[[#{accion.guardar}]]</button>
                             </div>
                         </form>
                     </div>
@@ -60,28 +60,28 @@
                     <div class="col-md-12">
                         <div class="card" style="background-color: rgba(0, 0, 0, 0.5); color: white;">
                             <div class="card-header">
-                                <h4>Agregar Comentario</h4>
+                                <h4>[[#{agregar.comentario}]]</h4>
                             </div>
                             <div class="card-body" style="background-color: rgba(0, 0, 0, 0); color: white;">
                                 <form th:action="@{/contacto/guardar}" method="post">
                                     <div class="mb-3">
-                                        <label for="nombre">Nombre</label>
+                                        <label for="nombre">[[#{nombre.nombre}]]</label>
                                         <input type="text" class="form-control" id="nombre" name="nombre" required="required"/>
                                     </div>
                                     <div class="mb-3">
-                                        <label for="apellido">Apellido</label>
+                                        <label for="apellido">[[#{apellido.apellido}]]</label>
                                         <input type="text" class="form-control" id="apellido" name="apellido" required="required"/>
                                     </div>
                                     <div class="mb-3">
-                                        <label for="numero">Número de teléfono</label>
+                                        <label for="numero">[[#{telefono.telefono}]]</label>
                                         <input type="number" class="form-control" id="numero" name="numero" required="required"/>
                                     </div>
                                     <div class="mb-3">
-                                        <label for="mensaje">Mensaje</label>
+                                        <label for="mensaje">[[#{mensaje.mensaje}]]</label>
                                         <textarea class="form-control" id="mensaje" name="mensaje" rows="3" required="required"></textarea>
                                     </div>
                                     <div class="card-footer text center" >
-                                        <button class="btn btn-trasparent" type="submit" style="background-color: rgba(0, 0, 255, 0.5); color: white; ">Guardar</button>
+                                        <button class="btn btn-trasparent" type="submit" style="background-color: rgba(0, 0, 255, 0.5); color: white; ">[[#{accion.guardar}]]</button>
                                     </div>
                                 </form>
                             </div>
@@ -98,7 +98,7 @@
                     <div class="col-md-12">
                         <div class="card" style="background-color: rgba(0, 0, 0, 0.5); color: white;">
                             <div class="card-header">
-                                <h4>Comentarios</h4>
+                                <h4>[[#{comentario.comentario}]]</h4>
                             </div>
                             <div class="card-body">
                                 <div th:if="${contactos != null and not #lists.isEmpty(contactos)}" class="table-responsive">
@@ -106,10 +106,10 @@
                                         <thead class="table-dark" >
                                             <tr>
                                                 <th>#</th>
-                                                <th>Nombre</th>
-                                                <th>Apellido</th>
-                                                <th sec:authorize="hasRole('ROLE_ADMIN')">Numero de telefono </th>
-                                                <th>Comentario</th>
+                                                <th>[[#{nombre.nombre}]]</th>
+                                                <th>[[#{apellido.apellido}]]</th>
+                                                <th sec:authorize="hasRole('ROLE_ADMIN')">[#{telefono.telefono}]]</th>
+                                                <th>[[#{mensaje.mensaje}]]</th>
                                                 <th></th>
                                             </tr>
                                         </thead>
@@ -123,7 +123,7 @@
                                                 <td>
                                                     <div>
                                                         <a th:href="@{/contacto/eliminar/}+${contacto.idContacto}" style="background-color: rgba(255, 0, 0, 0.5); color: white; "class="btn btn-trasparent" sec:authorize="hasRole('ROLE_ADMIN')">
-                                                            <i class="fas fa-trash"></i> Eliminar
+                                                            <i class="fas fa-trash"></i>[[#{accion.eliminar}]]
                                                         </a>
                                                     </div>
                                                 </td>
@@ -132,7 +132,7 @@
                                     </table>
                                 </div>
                                 <div class="text-center p-2" th:if="${contactos == null or #lists.isEmpty(contactos)}">
-                                    <span>No hay Comentarios</span>
+                                    <span>[[#{comentario.nohay}]]</span>
                                 </div>
                             </div>
                         </div>
