@@ -114,7 +114,7 @@ public class CarritoController {
     @GetMapping("/carrito/agregar/{id_juego}")
     public ModelAndView agregarItem(Model model, Item item) {
         Item item2 = itemService.get(item);
-        System.out.println(item2);
+        System.out.println(item);
         if (item2 == null) {
             Juegos juegos = juegosService.getJuego(item);
             item2 = new Item(juegos);
@@ -124,7 +124,7 @@ public class CarritoController {
         System.out.println(item2);
         var lista = itemService.gets();
         var totalCarritos = 0;
-        double carritoTotalVenta = 0;
+        var carritoTotalVenta = 0;
         for (Item i : lista) {
             totalCarritos += i.getCantidad();
             carritoTotalVenta += (i.getCantidad() * i.getPrecio());
