@@ -11,7 +11,7 @@
             <div class="container">
                 <div class="card" style="background-color: rgba(0, 0, 0, 0.5);">
                     <div class="container" style="background-color: rgba(0, 0, 0, 0); padding: 10px; text-align: center;">
-                        <h2 class="inline" style="color: white;" >Juegos Destacados</h2>
+                        <h2 class="inline" style="color: white;" th:text="#{index.destacados}"></h2>
                     </div>
                     <div class="col">
                         <div id="resultsBlock"></div>
@@ -39,7 +39,7 @@
             <form action="/carrito/listado">
                 <button type="submit" style="background-color: rgba(0, 255, 255, 0.8);" class="btn btn-trasparent">
                     <i class="fas fa-cart-plus"></i>
-                    Ver Articulos del Carrito [[${listaTotal}]]
+                    <span th:text="#{carrito.veritems}"></span>   [[${listaTotal}]]
                 </button>
             </form>
         </div> 
@@ -120,18 +120,17 @@
                         <div class="card" style="background-color: rgba(0, 0, 0, 0.5);">
                             <div class="card-body">
                                 <div class="mb-3">
-                                    <label for="precioInf" style="color: white;">Ingrese el Precio Menor</label>
+                                    <label for="precioInf" style="color: white;" th:text="#{filtro.preciomin}"></label>
                                     <input type="number" class="form-control" th:value="${precioInf}" th:name="precioInf" required="true" />
                                 </div>
                                 <div class="mb-3">
-                                    <label for="precioSup" style="color: white;">Ingrese el Precio Mayor</label>
+                                    <label for="precioSup" style="color: white;" th:text="#{filtro.preciomax}"></label>
                                     <input type="number" class="form-control" th:value="${precioSup}" th:name="precioSup" required="true" />
                                 </div>
                             </div>
                             <div class="card-footer text-center">
-                                <button type="submit" style="background-color: rgba(255, 0, 255, 0.5); color: white; "class="btn btn-trasparent
-                                        ">
-                                    <i class="fas fa-check"></i> Buscar
+                                <button type="submit" style="background-color: rgba(255, 0, 255, 0.5); color: white; " class="btn btn-trasparent">
+                                    <i class="fas fa-check"></i> <span th:text="#{filtro.buscar}"></span>
                                 </button>
                             </div>
                         </div>
@@ -144,13 +143,13 @@
                         <div class="card" style="background-color: rgba(0, 0, 0, 0.5);">
                             <div class="card-body">
                                 <div class="mb-3">
-                                    <label for="nombre" style="color: white;">Buscar por Nombre de Juego</label>
+                                    <label for="nombre" style="color: white;" th:text="#{filtro.nombrejuego}"></label>
                                     <input type="text" class="form-control" th:value="${nombre}" name="nombre" required="true" />
                                 </div>
                             </div>
                             <div class="card-footer text-center">
-                                <button type="submit" style="background-color: rgba(255, 0, 255, 0.7); color: white; "class="btn btn-trasparent">
-                                    <i class="fas fa-search"></i> Buscar
+                                <button type="submit" style="background-color: rgba(255, 0, 255, 0.7); color: white; " class="btn btn-trasparent">
+                                    <i class="fas fa-search"></i> <span th:text="#{filtro.buscar}"></span>
                                 </button>
                             </div>
                         </div>
@@ -163,16 +162,16 @@
                         <div class="card" style="background-color: rgba(0, 0, 0, 0.5);">
                             <div class="card-body">
                                 <div class="mb-3">
-                                    <label for="categoriaId" style="color: white;">Filtrar por Categoría</label>
+                                    <label for="categoriaId" style="color: white;" th:text="#{filtro.filtrarcat}"></label>
                                     <select name="categoriaId" class="form-select">
-                                        <option value="">Todas las categorías</option>
+                                        <option value="" th:text="#{filtro.todascategorias}"></option>
                                         <option th:each="categoria : ${categorias}" th:value="${categoria.idCategoria}" th:text="${categoria.descripcion}"></option>
                                     </select>
                                 </div>
                             </div>
                             <div class="card-footer text-center">
-                                <button type="submit" style="background-color: rgba(255, 0, 255, 0.5); color: white; "class="btn btn-trasparent">
-                                    <i class="fas fa-filter"></i> Filtrar
+                                <button type="submit" style="background-color: rgba(255, 0, 255, 0.5); color: white; " class="btn btn-trasparent">
+                                    <i class="fas fa-filter"></i> <span th:text="#{filtro.filtrar}"></span>
                                 </button>
                             </div>
                         </div>
@@ -180,6 +179,5 @@
                 </div>
             </div>
         </section>
-
     </body>
 </html>
