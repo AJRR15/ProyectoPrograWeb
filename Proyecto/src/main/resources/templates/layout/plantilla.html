@@ -60,9 +60,7 @@
                     </div>
                     <!-- Login -->
                     <div class="col-md-3 d-flex justify-content-end"> <!-- Mantenemos el bloque del login en el lado derecho -->
-                        <li class="nav-item my-auto me-3 align-items-left"> <!-- Agregamos clase "me-3" para agregar espacio entre el nombre y el ícono de logout -->
-                            <span sec:authentication="name" style="color: white;"></span> <!-- Movemos el nombre del usuario aquí -->
-                        </li>
+                        
                         <ul class="navbar-nav" sec:authorize="isAuthenticated()">                           
                             <li class="nav-item my-auto">
                                 <form method="post" th:action="@{/logout}">
@@ -72,6 +70,10 @@
                                 </form>
                             </li>
                         </ul>
+                        <ul class="navbar-nav" sec:authorize="isAuthenticated()">
+                                <li class="nav-item text-white my-auto">
+                                    <span sec:authentication="name" style="color: white;"></span>
+                                </li>
                         <ul class="navbar-nav" sec:authorize="!isAuthenticated()">
                             <li class="nav-item">
                                 <a class="nav-link" th:href="@{/login}">

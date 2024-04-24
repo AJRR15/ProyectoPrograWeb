@@ -4,7 +4,6 @@
  */
 package com.Proyecto.Proyecto.controller;
 
-
 import com.Proyecto.Proyecto.Domain.Categorias;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -53,9 +52,8 @@ public class CarritoController {
 
         return "/index";
     }
-    
-    
-        @PostMapping("/query1")
+
+    @PostMapping("/query1")
     public String consultaQuery1(@RequestParam(value = "precioInf") double precioInf,
             @RequestParam(value = "precioSup") double precioSup,
             @RequestParam(name = "categoriaId", required = false) Long categoriaId,
@@ -162,7 +160,7 @@ public class CarritoController {
     @GetMapping("/facturar/carrito")
     public String facturarCarrito() {
         itemService.facturar();
-        return "redirect:/";
+        return "redirect:/carrito/mensaje";
     }
 
 }
