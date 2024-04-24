@@ -1,19 +1,8 @@
-
-
 /* Comentario */
 * {
     box-sizing: border-box;
     margin: 0;
 }
-
-/*body {
-    font-family: sans-serif;
-    padding: 80px 20px 0;
-    background-color: bisque;
-}*/
-
-
-
 .footer {
     color: black;
     text-align: center;
@@ -37,6 +26,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    overflow-x: hidden;
 }
 
 .video-container {
@@ -46,4 +36,3 @@ body {
 .navbar {
     font-size: 20px;
 }
-

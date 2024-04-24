@@ -56,14 +56,7 @@
                             <a class="nav-link fs-5 me-3" th:href="@{/carrito/listado}">
                                 <i class="fas fa-shopping-cart"></i> <!-- Ícono de carrito -->
                             </a>
-                        </div>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">[[#{plantilla.idioma}]]</a>
-                            <ul class="dropdown-menu dropdown-menu-dark">
-                                <li><a class="dropdown-item"  th:href="@{/(lang=es)}">ES</a></li>
-                                <li><a class="dropdown-item" th:href="@{/(lang=en)}">EN</a></li>
-                            </ul>
-                        </li>                                
+                        </div>                                             
                     </div>
                     <!-- Login -->
                     <div class="col-md-3 d-flex justify-content-end"> <!-- Mantenemos el bloque del login en el lado derecho -->
@@ -87,6 +80,22 @@
                     </div>
                 </div>
                 </section>
+                <section
+                    <nav class="navbar navbar-expand-sm navbar-dark p-0" style="background-color: rgba(0,0,0,0); color: white;">
+                    <div class="container">
+                        <ul class="navbar-nav">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">[[#{plantilla.idioma}]]</a>
+                                <!-- Establece un ancho máximo y ajusta la posición del menú desplegable -->
+                                <ul class="dropdown-menu dropdown-menu-transparent" style="background-color: rgba(0,0,0,0.5); max-width: 50px; left: -3rem;">
+                                    <li><a style="color: white; "class="dropdown-item" th:href="@{/(lang=es)}">ES</a></li>
+                                    <li><a style="color: white; "class="dropdown-item" th:href="@{/(lang=en)}">EN</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+            </nav>
+            </section>
         </header>
         <footer th:fragment="footer" class="bg-dark text-white mt-5 p-2" style="background-color: rgba(0, 0, 0, 0.5); color: white !important;">
             <!-- Tu contenido de footer aquí -->

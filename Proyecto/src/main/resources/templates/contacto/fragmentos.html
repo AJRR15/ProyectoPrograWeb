@@ -38,7 +38,7 @@
                                     <input type="text" class="form-control" name="apellido" required="true" />
                                 </div>
                                 <div class="mb-3">
-                                    <label for="numero">[#{telefono.telefono}]]</label>
+                                    <label for="numero">[[#{telefono.telefono}]]</label>
                                     <input type="number" class="form-control" name="numero" required="true" />
                                 </div>
                                 <div class="mb-3">
@@ -108,7 +108,7 @@
                                                 <th>#</th>
                                                 <th>[[#{nombre.nombre}]]</th>
                                                 <th>[[#{apellido.apellido}]]</th>
-                                                <th sec:authorize="hasRole('ROLE_ADMIN')">[#{telefono.telefono}]]</th>
+                                                <th sec:authorize="hasRole('ROLE_ADMIN')">[[#{telefono.telefono}]]</th>
                                                 <th>[[#{mensaje.mensaje}]]</th>
                                                 <th></th>
                                             </tr>
