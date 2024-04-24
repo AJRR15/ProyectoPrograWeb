@@ -167,6 +167,13 @@
                                                 <td style="color: white;" th:text="${info.nombre}"></td>
                                                 <td style="color: white;" th:text="${info.telefono}"></td>
                                                 <td style="color: white;" th:text="${info.correo}"></td>
+                                                <td>
+                                                    <div>
+                                                        <a th:href="@{/contacto/eliminarInformacion/}+${info.id_informacion}" style="background-color: rgba(255, 0, 0, 0.5); color: white; "class="btn btn-trasparent" sec:authorize="hasRole('ROLE_ADMIN')">
+                                                            <i class="fas fa-trash"></i>[[#{accion.eliminar}]]
+                                                        </a>
+                                                    </div>
+                                                </td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -178,6 +185,44 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
+        <section th:fragment="BotonAgregarInfo" class="py-4 mb-4">
+            <div class="container" sec:authorize="hasRole('ROLE_ADMIN')">
+                <div class="row">
+                    <div class="col-md-3">
+                        <button type="button" class="btn btn-primary btn-block" data-bs-toggle="modal" data-bs-target="#ModalAgregarInfo">
+                            <i class="fas fa-plus"></i>[[#{contacto.agregar}]]
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Ventana modal para agregar información -->
+        <section th:fragment="ModalAgregarInfo">
+            <div id="ModalAgregarInfo" class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <!-- Contenido del modal -->
+                <form th:action="@{/contacto/guardarInformacion}" method="post">
+                    <!-- Campos del formulario -->
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="nombre">Nombre</label>
+                            <input type="text" class="form-control" id="nombre" name="nombre" required="required"/>
+                        </div>
+                        <div class="mb-3">
+                            <label for="telefono">Teléfono</label>
+                            <input type="text" class="form-control" id="telefono" name="telefono" required="required"/>
+                        </div>
+                        <div class="mb-3">
+                            <label for="correo">Correo</label>
+                            <input type="email" class="form-control" id="correo" name="correo" required="required"/>
+                        </div>
+                    </div>
+                    <!-- Botón de guardar -->
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" type="submit">Guardar</button>
+                    </div>
+                </form>
             </div>
         </section>
 
