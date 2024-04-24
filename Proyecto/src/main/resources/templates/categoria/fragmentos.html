@@ -10,7 +10,7 @@
                 <div class="row">
                     <div class="col-md-3">
                         <button type="button" style="background-color: rgba(0, 255, 255, 0.7); color: white; "class="btn btn-trasparent btn-block" data-bs-toggle="modal" data-bs-target="#ModalAgregar">
-                            <i class="fas fa-plus"></i> Agregar
+                            <i class="fas fa-plus"></i>[[#{categoria.agregar}]]
                         </button>
                     </div>
                 </div>
@@ -23,26 +23,26 @@
                 <div class="modal-dialog modal-md">
                     <div class="modal-content" style="background-color: rgba(81, 30, 164, 0.7); color: white;">
                         <div class="modal-header bg-black text-white">
-                            <h5 class="modal-title">Agregar Categoria</h5>
+                            <h5 class="modal-title">[[#{categoria.agregar}]]</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <form th:action="@{/categoria/guardar}" method="POST" class="was-validated" enctype="multipart/form-data">
                             <div class="modal-body">
                                 <div class="mb-3">
-                                    <label for="descripcion">Descripcion</label>
+                                    <label for="descripcion">[[#{categoria.categoria}]]</label>
                                     <input type="text" class="form-control" name="descripcion" required="true" />
                                 </div>
                                 <div class="mb-3">
-                                    <label for="ruta_imagen">Imagen</label>
+                                    <label for="ruta_imagen">[[#{categoria.rutaImagen}]]</label>
                                     <input type="text" class="form-control" name="ruta_imagen" required="true" />
                                 </div>
                                 <div class="mb-3 form-check">
                                     <input type="checkbox" class="form-check-input" id="activo" name="activo" />
-                                    <label style="color: white; "class="form-check-label" for="activo">Activo</label>
+                                    <label style="color: white; "class="form-check-label" for="activo">[[#{categoria.activo}]]</label>
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="submit" style="background-color: rgba(0, 0, 0, 255); color: white;"class="btn btn-trasparent">Guardar</button>
+                                <button type="submit" style="background-color: rgba(0, 0, 0, 255); color: white;"class="btn btn-trasparent">[[#{accion.guardar}]]</button>
                             </div>
                         </form>
                     </div>
@@ -57,7 +57,7 @@
                     <div class="col-md-12">
                         <div class="card" style="background-color: rgba(0, 0, 0, 0.5); color: white;">
                             <div class="card-header">
-                                <h4>Listado de Categorias</h4>
+                                <h4>[[#{categoria.listado}]]</h4>
                             </div>
                             <div class="card-body">
                                 <div th:if="${categorias != null and not #lists.isEmpty(categorias)}" class="table-responsive">
@@ -65,9 +65,9 @@
                                         <thead class="table-dark">
                                             <tr>
                                                 <th>#</th>
-                                                <th>Descripción</th>
-                                                <th>Imagen</th>
-                                                <th>Activo</th>
+                                                <th>[[#{categoria.categoria}]]</th>
+                                                <th>[[#{categoria.rutaImagen}]]</th>
+                                                <th>[[#{categoria.activo}]]</th>
                                                 <th></th>
                                             </tr>
                                         </thead>
@@ -80,10 +80,10 @@
                                                 <td>
                                                     <div>
                                                         <a th:href="@{/categoria/eliminar/}+${categoria.idCategoria}" style="background-color: rgba(255, 0, 0, 0.5); color: white; "class="btn btn-trasparent">
-                                                            <i class="fas fa-trash"></i> Eliminar
+                                                            <i class="fas fa-trash"></i> [[#{accion.eliminar}]]
                                                         </a>
                                                         <a th:href="@{/categoria/modificar/}+${categoria.idCategoria}" style="background-color: rgba(0, 255, 0, 0.5); color: white; "class="btn btn-trasparent">
-                                                            <i class="fas fa-pencil"></i> Actualizar
+                                                            <i class="fas fa-pencil"></i> [[#{accion.actualizar}]]
                                                         </a>
                                                     </div>
                                                 </td>
@@ -93,7 +93,7 @@
                                     </table>
                                 </div>
                                 <div class="text-center p-2" style="color: white; "th:if="${categorias == null or #lists.isEmpty(categorias)}">
-                                    <span>No hay juegos disponibles</span>
+                                    <span>[[#{cate.nohay}]]</span>
                                 </div>
                             </div>
                         </div>
@@ -118,23 +118,23 @@
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-header">
-                                                    <h4>Modificar</h4>
+                                                    <h4>[[#{accion.actualizar}]]</h4>
                                                 </div>
                                                 <div class="card-body">
                                                     <div class="mb-3">
-                                                        <label for="descripcion">Descripcion</label>
+                                                        <label for="descripcion">[[#{categoria.categoria}]]</label>
                                                         <input type="text" class="form-control" 
                                                                name="descripcion" th:field="*{descripcion}"
                                                                required="true">
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label for="rutaImagen">Imagen</label>
+                                                        <label for="rutaImagen">[[#{categoria.rutaImagen}]]</label>
                                                         <input type="text" class="form-control" 
                                                                name="rutaImagen" th:field="*{rutaImagen}"
                                                                required="true">
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label for="activo">Activo</label>
+                                                        <label for="activo">[[#{categoria.activo}]]</label>
                                                         <input class="form-check-input" 
                                                                type="checkbox" 
                                                                name="activo" 
