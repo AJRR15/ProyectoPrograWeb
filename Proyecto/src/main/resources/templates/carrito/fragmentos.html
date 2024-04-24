@@ -49,17 +49,17 @@
                     <div class="col-md-9">
                         <div class="card" style="background-color: rgba(0, 0, 0, 0.5);">
                             <div class="card-header" style="color: white;">
-                                <h4>Carrito de compras</h4>
+                                <h4 th:text="#{carrito.titulo}"></h4>
                             </div>
                             <div th:if="${items != null and !items.empty}">
                                 <table class="table table-stryped">
                                     <thead class="thead-dark" style="color: white;">
                                         <tr>
-                                            <th>#</th>
-                                            <th>Nombre</th>
-                                            <th>Precio</th>
-                                            <th>Cantidad</th>
-                                            <th>Total</th>
+                                            <th th:text="#{carrito.tabla.numero}"></th>
+                                            <th th:text="#{carrito.tabla.nombre}"></th>
+                                            <th th:text="#{carrito.tabla.precio}"></th>
+                                            <th th:text="#{carrito.tabla.cantidad}"></th>
+                                            <th th:text="#{carrito.tabla.total}"></th>
                                             <th></th>
                                             <th></th>
                                         </tr>
@@ -73,29 +73,28 @@
                                             <td class="text-center"  style="color: white;">[[${item.cantidad*item.precio}]]</td>
                                             <td>
                                                 <a th:href="@{/carrito/eliminar/}+${item.id_juego}" class="btn btn-danger">
-                                                    <i class='fas fa-trash'></i> Eliminar Artículo
+                                                    <i class='fas fa-trash'></i><span th:text="#{accion.eliminar}"></span>
                                                 </a>
                                             </td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
-                            <div class="text-center p-2 text-white" th:if="${items== null or items.empty}">
-                                No hay artículos en el carrito.
+                            <div class="text-center p-2 text-white" th:if="${items== null or items.empty}" th:text="#{carrito.sinarticulos}">                                
                             </div>
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="card text-center" style="background-color: rgba(0, 0, 255, 0.5); color: black; margin-bottom: 15px;">
                             <div class="card-body">
-                                <h3>Monto Total</h3>
+                                <h3 th:text="#{carrito.montototal}"></h3>
                                 <h4 class="fs-4">$[[${carritoTotal}]] Usd.</h4>
                             </div>
                         </div>
                         <div class="card text-center text-white mb-3" style="background-color: rgba(255, 0, 0, 0.5); color: red;">
                             <div class="card-body">
                                 <a th:href="@{/}" class="btn btn-trasparent"style="background-color: rgba(0, 0, 0, 0);">
-                                    </i>Seguir Comprando
+                                    </i><span th:text="#{carrito.seguircomprando}"></span>
                                 </a>
                             </div>
                         </div>
@@ -103,7 +102,7 @@
                              text-white mb-3" style="background-color: rgba(0, 255, 0, 0.5); color: green;">
                             <div class="card-body">
                                 <a th:href="@{/facturar/carrito}"class="btn btn-trasparent" style="background-color: rgba(0, 0, 0, 0);">
-                                    <i class='fas fa-fordward'></i> Facturar y Pagar
+                                    <i class='fas fa-fordward'></i><span th:text="#{carrito.facturarypagar}"></span>
                                 </a>
                             </div>
                         </div> 
